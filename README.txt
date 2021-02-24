@@ -1,6 +1,31 @@
 Garrett Powell, Marlon Miller Matute, Michael Thorson
 
 Box-Making Program
+1. Why we are here.
+  
+2. Elevator pitch.
+  
+3. Design a product box.
+  
+4. Create a NOT list.
+  
+5. Meet your neighbors.
+  
+6. Show the solution.
+  
+7. Ask what keeps us up at night.
+  
+8. Size it up.
+  
+9. Be clear on what’s going to give.
+  
+10. Show what it’s going to take.
+  
+The thing that kills most projects at the start: We start our projects before everyone is on board.
+  
+
+
+Inception Deck:
 
 Glossary:
 
