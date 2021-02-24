@@ -1,6 +1,8 @@
 Garrett Powell, Marlon Miller Matute, Michael Thorson
 
 Box-Making Program
+
+Inception Deck:
 1. Why we are here.
   
 2. Elevator pitch.
@@ -21,11 +23,6 @@ Box-Making Program
   
 10. Show what it’s going to take.
   
-The thing that kills most projects at the start: We start our projects before everyone is on board.
-  
-
-
-Inception Deck:
 
 Glossary:
 
