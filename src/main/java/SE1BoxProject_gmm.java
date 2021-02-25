@@ -11,7 +11,6 @@ public class SE1BoxProject_gmm
 {
     public static void main( String[] args )
     {
-		createFile("Test");
         System.out.println("<path d=\"M 45.0 45.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />");
     }
 
@@ -27,18 +26,20 @@ public class SE1BoxProject_gmm
 	    return false;
     }
 	
-	public static void createFile(String fileName)
+	public boolean createFile(String fileName)
 	{
-		 try 
-		 {
+		try 
+		{
 			File myObj = new File(fileName + ".svg");
 			  
 			if (myObj.createNewFile()) {
 				System.out.println("File created: " + myObj.getName());
+				return true;
 			}
 			else 
 			{
-				System.out.println("File already exists.");
+				System.out.println("Failed to create file, file may already exist, please delete file, or move file");
+				return false;
 			}
 		} 
 		catch (IOException e) 
@@ -46,5 +47,6 @@ public class SE1BoxProject_gmm
 		  System.out.println("An error occurred.");
 		  e.printStackTrace();
 		}
+		return false;
 	}
 }
