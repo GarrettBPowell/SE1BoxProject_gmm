@@ -10,8 +10,9 @@ Inception Deck:
 3. Design a product box.
   
 4. Create a NOT list.
-  
-5. Meet your neighbors.
+    Custom shape maker
+    Round boxes
+    Gears or anything mechanical
   
 6. Show the solution.
   
