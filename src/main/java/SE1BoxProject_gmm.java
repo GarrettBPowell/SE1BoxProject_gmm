@@ -26,7 +26,7 @@ public class SE1BoxProject_gmm
 	    return false;
     }
 	
-	public boolean createFile(String fileName)
+	public static boolean createFile(String fileName)
 	{
 		try 
 		{
