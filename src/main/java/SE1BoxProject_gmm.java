@@ -2,18 +2,33 @@
  * SE1 Laser Box Project
  * Marlon Miller Matute, Garrett Powell, Michael Thorson
  */
- 
-import java.io.File;  // Import the File class
-import java.io.IOException;
 
-
+import java.util.*;
 public class SE1BoxProject_gmm
 {
     public static void main( String[] args )
     {
-        System.out.println("<path d=\"M 45.0 45.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />");
-    }
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Welcome to your Box Creator!\nPlease enter the following measurements for the box.\n");
 
+        System.out.print("Enter the width between (0.0-100.0)cm: ");
+        String Str = sc.nextLine();
+        float width = Float.parseFloat(Str); 
+
+        System.out.print("Enter the length between (0.0-100.0)cm: ");
+        Str = sc.nextLine();
+        float length = Float.parseFloat(Str); 
+
+        System.out.print("Enter the height between (0.0-100.0)cm: ");
+        Str = sc.nextLine();
+        float height = Float.parseFloat(Str); 
+
+        System.out.print("You have entered: "+ (width+1) + "\n");
+        System.out.print("You have entered: "+ (length+1) + "\n");
+        System.out.print("You have entered: "+ (height+1) + "\n");
+
+    }
+    
     public boolean coordinates(String keys)
     {
     	String corners[] = {"<path d=\"M 35.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />","<path d=\"M 45.0 45.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />","<path d=\"M 55.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />","<path d=\"M 45.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />","<path d=\"M 35.0 45.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />","<path d=\"M 55.0 45.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />"};
@@ -25,28 +40,4 @@ public class SE1BoxProject_gmm
 
 	    return false;
     }
-	
-	public static boolean createFile(String fileName)
-	{
-		try 
-		{
-			File myObj = new File(fileName + ".svg");
-			  
-			if (myObj.createNewFile()) {
-				System.out.println("File created: " + myObj.getName());
-				return true;
-			}
-			else 
-			{
-				System.out.println("Failed to create file, file may already exist, please delete file, or move file");
-				return false;
-			}
-		} 
-		catch (IOException e) 
-		{
-		  System.out.println("An error occurred.");
-		  e.printStackTrace();
-		}
-		return false;
-	}
 }
