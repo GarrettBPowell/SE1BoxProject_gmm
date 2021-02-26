@@ -2,7 +2,9 @@
  * SE1 Laser Box Project
  * Marlon Miller Matute, Garrett Powell, Michael Thorson
  */
-
+ 
+import java.io.File; 
+import java.io.IOException;
 import java.util.*;
 public class SE1BoxProject_gmm
 {
@@ -40,4 +42,29 @@ public class SE1BoxProject_gmm
 
 	    return false;
     }
+	
+	public static boolean createFile(String fileName)
+	{
+		try 
+		{
+			File newFile = new File(fileName + ".svg");
+			  
+			if (newFile.createNewFile()) {
+				System.out.println("File created: " + newFile.getName() + " in project folder");
+				return true;
+			}
+			else 
+			{
+				System.out.println("Failed to create file, file may already exist, please delete file, or move file");
+				return false;
+			}
+		} 
+		catch (IOException e) 
+		{
+		  System.out.println("An error occurred.");
+		  e.printStackTrace();
+		}
+		return false;
+	}
+
 }
