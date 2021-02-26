@@ -13,6 +13,8 @@ Inception Deck:
     Custom shape maker
     Round boxes
     Gears or anything mechanical
+    Buying the user a computer
+    Doing any sort of authentication
   
 6. Show the solution.
   
