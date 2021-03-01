@@ -52,7 +52,6 @@ public class SE1BoxProject_gmmTest
         catch (Exception e) {
             System.out.println("Wrong coordinates");
         }
-
     }
 	
 	@Test

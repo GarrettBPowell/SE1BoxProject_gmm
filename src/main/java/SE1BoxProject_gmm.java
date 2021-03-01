@@ -6,6 +6,8 @@
 import java.io.File; 
 import java.io.IOException;
 import java.util.*;
+import java.io.*;
+
 public class SE1BoxProject_gmm
 {
     public static void main( String[] args )
@@ -28,7 +30,6 @@ public class SE1BoxProject_gmm
         System.out.print("You have entered: "+ (width+1) + "\n");
         System.out.print("You have entered: "+ (length+1) + "\n");
         System.out.print("You have entered: "+ (height+1) + "\n");
-
     }
     
     public boolean coordinates(String keys)
@@ -48,9 +49,15 @@ public class SE1BoxProject_gmm
 		try 
 		{
 			File newFile = new File(fileName + ".svg");
-			  
+			
+     
 			if (newFile.createNewFile()) {
 				System.out.println("File created: " + newFile.getName() + " in project folder");
+
+					BufferedWriter toFile = new BufferedWriter(new FileWriter(fileName + ".svg"));
+					toFile.write("<?xml version='1.0' encoding='us-ascii'?>");
+					toFile.write("\n<svg height=\"81.90mm\" viewBox=\"0.0 0.0 120.10 81.90\" width=\"120.10mm\" xmlns\"http://www.w3.org/2000/svg\" xmlns:cc=\"http://creativecommons.org/ns#\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:svg=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">");
+					toFile.close();
 				return true;
 			}
 			else 
