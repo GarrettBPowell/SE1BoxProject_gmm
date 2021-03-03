@@ -2,6 +2,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.*;
 
+import java.io.File; 
+import java.io.IOException;
+import java.util.*;
+import java.io.*;
+
 /**
 import static org.junit.Assert.assertTrue;
 import org.junit.*;
@@ -61,7 +66,34 @@ public class SE1BoxProject_gmmTest
 			int randA = (int)(Math.random() * 10000);
 			int randB = (int)(Math.random() * 10000);
 			
-			assertTrue(box.createFile("Test File " + randA + " " + randB));
+			assertTrue(box.createFile("Test fileCreation " + randA + " " + randB));
+		}
+		catch (Exception e) {
+			System.out.println("Failed to create file, file may already exist, please delete file, or move file");
+		}
+	}
+	
+	@Test
+	public void fileCreationAndRead()
+	{
+		try{
+			int randA = (int)(Math.random() * 10000);
+			int randB = (int)(Math.random() * 10000);
+			File newFile = new File("Test fileCreationAndRead " + randA + " " + randB + ".svg");
+			
+			//file made
+			assertTrue(box.createFile("Test fileCreationAndRead " + randA + " " + randB));
+			
+			//create file reader
+			BufferedReader fromFile = new BufferedReader(new FileReader(newFile)); 
+			
+			//assert strings
+			String firstLine = "<?xml version='1.0' encoding='us-ascii'?>";
+			String secondLine = "<svg height=\"81.90mm\" viewBox=\"0.0 0.0 120.10 81.90\" width=\"120.10mm\" xmlns\"http://www.w3.org/2000/svg\" xmlns:cc=\"http://creativecommons.org/ns#\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:svg=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">";
+			
+			
+			assertEquals(firstLine, fromFile.readLine());
+			assertEquals(secondLine, fromFile.readLine());
 		}
 		catch (Exception e) {
 			System.out.println("Failed to create file, file may already exist, please delete file, or move file");
