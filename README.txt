@@ -36,7 +36,11 @@ Usage:
 
 The program, when run, will output a string(s) of SVG, forming the walls of a box.
 
+Upon running the program, the user will be prompted for the desired length, width, and height of the box (between minimum and maximum values) in centimeters, as well as the thickness of the material.
+
 Expected Output:
 
-The string(s) of SVG will appear similar to the following
+The strings of SVG will appear similar to the following
 <path d="M 45.0 45.0 v -9.0 h -9.0 v 9.0 h 9.0" stroke="rgb(255,0,0)" stroke-width="0.20" />
+
+These will each form a wall of the box.
