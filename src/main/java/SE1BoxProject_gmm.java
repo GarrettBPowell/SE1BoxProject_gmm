@@ -59,12 +59,12 @@ public class SE1BoxProject_gmm
 
                     BufferedWriter toFile = new BufferedWriter(new FileWriter(fileName + ".svg"));
                     toFile.write("<?xml version='1.0' encoding='us-ascii'?>");
-                    toFile.write("\n<svg height=\"81.90mm\" viewBox=\"0.0 0.0 120.10 81.90\" width=\"120.10mm\" xmlns\"http://www.w3.org/2000/svg\" xmlns:cc=\"http://creativecommons.org/ns#\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:svg=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">");
+                    toFile.write("\n<svg height=\"81.90mm\" viewBox=\"0.0 0.0 120.10 81.90\" width=\"120.10mm\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:cc=\"http://creativecommons.org/ns#\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:svg=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">");
                     toFile.write("\n<g id=\"dovetail\" style=\"fill:none;stroke-linecap:round;stroke-linejoin:round;\">");
 
                     String newPath = pathCreation(width,height);
-                    System.out.println("New path created as: "+newPath);
-                    //toFile.write("\n"+newPath);
+                    System.out.println("New path created as: "+newPath); // here
+                    toFile.write("\n"+newPath);
 
                     toFile.write("\n</g>");
                     toFile.write("\n</svg>");
@@ -91,29 +91,91 @@ public class SE1BoxProject_gmm
         // h -> (-)left or (+)right
         // width and height
         String example = "<path d=\"M 35.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
-        String svg = "<path d=\"M 35.0 35.0"; // v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
+        String svg = "  <path d=\"M 35.0 35.0 "; // v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
+
+        int w = Integer.parseInt(width);
+        int l = Integer.parseInt(length);
+        int h = Integer.parseInt(height);
+
+        int base[] = {w,l,w,l};
+        int shortWalls[] = {h,w,h,w};
+        int longWalls[] = {h,l,h,l};
 
         for(int i = 0; i < 4; i++)
-        { 
-            svg += " ";
-            if(i % 2 == 0) {
-                svg += "v ";
-                if(i < 2) 
-                    svg += "-" + height;
-                else
-                    svg += height;
+        {
+            String negative = "-";
+            String empty = "";
+
+            if(i >= 2) { // alternate walls to form square
+                negative = "";
+                empty = "-";
             }
 
-            else {
-                svg += "h ";
-                if(i < 2) 
-                    svg += "-" + width;
-                else
-                    svg += width;
+            if(i % 2 == 0) 
+            {
+                int j = 0, count = 0;
+                while(j < base[i])
+                {
+                    if(count % 2 == 0) {
+                        svg += "v ";
+                        j++;
+                    }
+                    else
+                        svg += "h ";
+
+                    if(!(count % 3 == 0) || count == 0)
+                            svg += negative; // "-"
+                    else {
+                        count = -1;
+                        svg += empty;
+                    }
+
+
+                    svg += "1.0 ";
+                    count++;
+                }
+            }
+
+            else
+            {
+                int j = 0, count = 0;
+                while(j < base[i])
+                {
+                    boolean add = false;
+                    if(count % 2 == 0) {
+                        svg += "h ";
+                        add = true;
+                    }
+                    else
+                        svg += "v ";
+
+                    if(add && (j == 0 || (j+2) == base[i])) {
+                        svg += negative + "2.0 "; // "-"
+                        j += 2;
+                        count += 2;
+                    }
+                    else 
+                    {
+                        if(!(count % 3 == 0) || count == 0)
+                            svg += negative;
+                        else {
+                            count = -1;
+                            svg += empty;
+                        }
+
+                        svg += "1.0 ";
+                        if(add)
+                            j++;
+                    }
+
+                    count++;
+                }
             }
         }
+
 
         svg += "\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
         return svg;
     }
 }
+
