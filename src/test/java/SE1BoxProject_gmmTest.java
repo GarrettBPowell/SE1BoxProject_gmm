@@ -117,4 +117,18 @@ public class SE1BoxProject_gmmTest
             System.out.println("Failed to create file, file may already exist, please delete file, or move file");
         }
     }
+	
+	@Test
+    public void addPath()
+    {
+        try{
+			String width = "9";
+			String height = "9";
+            
+			assertEquals( "<path d=\"M 35.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", box.pathCreation(width, height));
+        }
+        catch (Exception e) {
+            System.out.println("Failed to create file, file may already exist, please delete file, or move file");
+        }
+    }
 }
