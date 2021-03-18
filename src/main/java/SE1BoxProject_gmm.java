@@ -32,6 +32,9 @@ public class SE1BoxProject_gmm
         System.out.print("Enter the height between (0.0-100.0)cm: ");
         height = sc.nextLine();
 
+        System.out.print("Enter the thickness of the material between (0.0-100.0)cm: ");
+        thickness = sc.nextLine();
+
         createFile(fileName);
     }
     
