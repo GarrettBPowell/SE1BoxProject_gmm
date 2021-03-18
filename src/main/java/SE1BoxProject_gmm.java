@@ -10,9 +10,9 @@ import java.io.*;
 
 public class SE1BoxProject_gmm
 {
-    public static String width;
-    public static String length;
-    public static String height;
+    public static String width = "0";
+    public static String length = "0";
+    public static String height = "0";
     public static String fileName;
 
     public static void main( String[] args )
@@ -35,18 +35,6 @@ public class SE1BoxProject_gmm
         createFile(fileName);
     }
     
-    public boolean coordinates(String keys)
-    {
-        String corners[] = {"<path d=\"M 35.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />","<path d=\"M 45.0 45.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />","<path d=\"M 55.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />","<path d=\"M 45.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />","<path d=\"M 35.0 45.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />","<path d=\"M 55.0 45.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />"};
-        int length = corners.length;
-
-        for(int i = 0; i < length; i++)
-            if(keys == corners[i])
-                return true;
-
-        return false;
-    }
-    
     public static boolean createFile(String fileName)
     {
         try 
@@ -57,13 +45,13 @@ public class SE1BoxProject_gmm
                 System.out.println("File created: " + newFile.getName() + " in project folder\n");
 
 					//create new file writer and add xml header
-                    BufferedWriter toFile = new BufferedWriter(new FileWriter(fileName + ".svg"));
+                    BufferedWriter toFile = new BufferedWriter(new FileWriter(newFile));
                     toFile.write("<?xml version='1.0' encoding='us-ascii'?>");
                     toFile.write("\n<svg height=\"81.90mm\" viewBox=\"0.0 0.0 120.10 81.90\" width=\"120.10mm\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:cc=\"http://creativecommons.org/ns#\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:svg=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">");
                     toFile.write("\n<g id=\"dovetail\" style=\"fill:none;stroke-linecap:round;stroke-linejoin:round;\">");
 
 					//create first side of box
-                    String newPath = pathCreation(width,height);
+                    String newPath = pathCreation(length, width,height);
                     System.out.println("New path created as: "+newPath); // here
                     toFile.write("\n"+newPath);
 					
@@ -71,6 +59,7 @@ public class SE1BoxProject_gmm
                     toFile.write("\n</g>");
                     toFile.write("\n</svg>");
                     toFile.close();
+					
                 return true;
             }
             else 
@@ -87,7 +76,7 @@ public class SE1BoxProject_gmm
         return false;
     }
 
-    public static String pathCreation(String width, String height)
+    public static String pathCreation(String length, String width, String height)
     {
         // v -> (+)up or (-)down
         // h -> (-)left or (+)right
@@ -176,6 +165,7 @@ public class SE1BoxProject_gmm
 		
 		//add end of path specifications
         svg += "\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
+		
         return svg;
     }
 }
