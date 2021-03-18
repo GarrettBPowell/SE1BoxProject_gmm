@@ -42,7 +42,7 @@ public class SE1BoxProject_gmm
             File newFile = new File(fileName + ".svg");
             
             if (newFile.createNewFile()) {
-                System.out.println("File created: " + newFile.getName() + " in project folder\n");
+                System.out.println("File created: " + newFile.getName() + " in project folder");
 
 					//create new file writer and add xml header
                     BufferedWriter toFile = new BufferedWriter(new FileWriter(newFile));
