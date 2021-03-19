@@ -5,6 +5,8 @@ Box-Making Program
 Inception Deck:
 1. Why we are here.
     To create a program that creates the pieces of a box through the medium of an svg file to be used by the Maker Lab lazer printer.
+    
+    Our goal is to make a box.
 2. Elevator pitch.
     
 3. Design a product box.
