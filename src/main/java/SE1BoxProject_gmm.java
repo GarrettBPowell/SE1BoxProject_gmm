@@ -55,8 +55,8 @@ public class SE1BoxProject_gmm
                     toFile.write("\n<g id=\"dovetail\" style=\"fill:none;stroke-linecap:round;stroke-linejoin:round;\">");
 
 					//create first side of box
-                    String newPath = pathCreation(length, width,height);
-                    System.out.println("New path created as: "+newPath); // here
+                    String newPath = pathCreation(length, width, height);
+                    System.out.println("New path created as: " + newPath); // here
                     toFile.write("\n"+newPath);
 					
 					//add xml file footers

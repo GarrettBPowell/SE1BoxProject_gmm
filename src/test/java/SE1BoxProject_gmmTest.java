@@ -96,7 +96,7 @@ public class SE1BoxProject_gmmTest
 			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
         }
         catch (Exception e) {
-            System.out.println("Failed to create path of size 9");
+            System.out.println("Failed to create path of size 9\n " + svgPath);
 		}
     }
 
@@ -112,7 +112,7 @@ public class SE1BoxProject_gmmTest
 			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
         }
         catch (Exception e) {
-            System.out.println("Failed to create path of size 8 \n" + svgPath + " .");
+            System.out.println("Failed to create path of size 8 \n" + svgPath);
 		}
     }
 	
@@ -128,7 +128,7 @@ public class SE1BoxProject_gmmTest
 			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
         }
         catch (Exception e) {
-            System.out.println("Failed to create path of size 7 \n" + svgPath + " .");
+            System.out.println("Failed to create path of size 7 \n" + svgPath);
 		}
     }
 
@@ -144,7 +144,7 @@ public class SE1BoxProject_gmmTest
 			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
         }
         catch (Exception e) {
-            System.out.println("Failed to create path of size 6 \n" + svgPath + " .");
+            System.out.println("Failed to create path of size 6 \n" + svgPath);
 		}
     }
 
@@ -160,7 +160,7 @@ public class SE1BoxProject_gmmTest
 			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
         }
         catch (Exception e) {
-            System.out.println("Failed to create path of size 5 \n" + svgPath + " .");
+            System.out.println("Failed to create path of size 5 \n" + svgPath);
 		}
     }
 	
@@ -176,7 +176,7 @@ public class SE1BoxProject_gmmTest
 			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h -2.0 v 1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h 2.0 v -1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
         }
         catch (Exception e) {
-            System.out.println("Failed to create path of size 4 \n" + svgPath + " .");
+            System.out.println("Failed to create path of size 4 \n" + svgPath );
 		}
     }
 	
@@ -192,7 +192,7 @@ public class SE1BoxProject_gmmTest
 			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -2.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 2.0 v -1.0 h 1.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
         }
         catch (Exception e) {
-            System.out.println("Failed to create path of size 3 \n" + svgPath + " .");
+            System.out.println("Failed to create path of size 3 \n" + svgPath);
 		}
     }
 }
