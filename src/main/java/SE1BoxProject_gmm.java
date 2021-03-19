@@ -13,6 +13,7 @@ public class SE1BoxProject_gmm
     public static String width = "0";
     public static String length = "0";
     public static String height = "0";
+    public static String thickness = "0";
     public static String fileName;
 
     public static void main( String[] args )
