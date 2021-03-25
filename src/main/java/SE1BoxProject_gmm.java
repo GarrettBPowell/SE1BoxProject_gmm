@@ -113,22 +113,34 @@ public class SE1BoxProject_gmm
     public static void main( String[] args )
     {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Welcome to your Box Creator!\nPlease enter the following measurements for the box.\n");
-
+		
         System.out.print("\nEnter your SVG Filename: ");
         fileName = sc.nextLine();
 
-        System.out.print("Enter the width between (0.0-100.0)cm: ");
-        width = sc.nextLine();
+		while((Integer.parseInt(width) < 4) || (Integer.parseInt(width) > 7))
+		{
+			System.out.print("Enter the width between (4.0-7.0)cm: ");
+			width = sc.nextLine();
+		}
 
-        System.out.print("Enter the length between (0.0-100.0)cm: ");
-        length = sc.nextLine();
+       	while((Integer.parseInt(length) < 4) || (Integer.parseInt(length) > 7))
+		{
+			System.out.print("Enter the length between (4.0-7.0)cm: ");
+			length = sc.nextLine();
+		}
+		
+		while((Integer.parseInt(height) < 4) || (Integer.parseInt(height) > 8))
+		{
+			System.out.print("Enter the height between (4.0-8.0)cm: ");
+			height = sc.nextLine();
+		}
 
-        System.out.print("Enter the height between (0.0-100.0)cm: ");
-        height = sc.nextLine();
-
-        System.out.print("Enter the thickness of the material between (0.0-100.0)cm: ");
-        thickness = sc.nextLine();
+		while((Double.parseDouble(thickness) < .5) || (Double.parseDouble(thickness) > 1.5))
+		{
+			System.out.print("Enter the thickness of the material between (0.5-1.05)cm: ");
+			thickness = sc.nextLine();
+		}
+       
 
         createFile(fileName);
     }
@@ -163,6 +175,10 @@ public class SE1BoxProject_gmm
             else 
             {
                 System.out.println("Failed to create file, file may already exist, please delete file, or move file");
+				System.out.print("\nEnter a different SVG Filename: ");
+				Scanner sc = new Scanner(System.in);
+				fileName = sc.nextLine();
+				createFile(fileName);
                 return false;
             }
         } 
