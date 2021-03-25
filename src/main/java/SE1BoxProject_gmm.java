@@ -13,6 +13,7 @@ private class Side
     String type;
     int sideLength, sideWidth;
     double depth;
+    int xCoord, yCoord;
 
     bool print()
     {
@@ -36,47 +37,91 @@ class Box
         h = height;
         depth = thickness;
 
+        //Check x/y coordinate order!!!
         if(hasTop)
         {
-            sides = new Side[4];
+            sides = new Side[6];
             
             sides[0].type = "A";
             sides[0].sideLength = l;
             sides[0].sideWidth = h;
             sides[0].depth = depth;
+            sides[0].xCoord = 5;
+            sides[0].yCoord = 5;
 
             sides[1].type = "B";
             sides[1].sideLength = w;
             sides[1].sideWidth = h;
             sides[1].depth = depth;
+            sides[1].xCoord = 15 + l;
+            sides[1].yCoord = 5;
 
             sides[2].type = "Bot";
             sides[2].sideLength = l;
             sides[2].sideWidth = w;
             sides[2].depth = depth;
+            sides[2].xCoord = 25 + l + w;
+            sides[2].yCoord = 5;
 
-            sides[3] = sides[2];
-            sides[3].type = "Top";
+            sides[3].type = "A";
+            sides[3].sideLength = l;
+            sides[3].sideWidth = h;
+            sides[3].depth = depth;
+            sides[3].xCoord = 5;
+            sides[3].yCoord = 15 + h;
 
+            sides[4].type = "B";
+            sides[4].sideLength = w;
+            sides[4].sideWidth = h;
+            sides[4].depth = depth;
+            sides[4].xCoord = 15 + l;
+            sides[4].yCoord = 15 + h;
+
+            sides[5].type = "Top";
+            sides[5].sideLength = l;
+            sides[5].sideWidth = h;
+            sides[5].depth = depth;
+            sides[5].xCoord = 25 + l + w;
+            sides[5].yCoord = 15 + w;
         }
         else
         {
-            sides = new Side[3];
+            sides = new Side[5];
 
             sides[0].type = "A";
             sides[0].sideLength = l;
             sides[0].sideWidth = h;
             sides[0].depth = depth;
+            sides[0].xCoord = 5;
+            sides[0].yCoord = 5;
 
             sides[1].type = "B";
             sides[1].sideLength = w;
             sides[1].sideWidth = h;
             sides[1].depth = depth;
+            sides[1].xCoord = 15 + l;
+            sides[1].yCoord = 5;
 
             sides[2].type = "Bot";
             sides[2].sideLength = l;
             sides[2].sideWidth = w;
             sides[2].depth = depth;
+            sides[2].xCoord = 25 + l + w;
+            sides[2].yCoord = 5;
+
+            sides[3].type = "A";
+            sides[3].sideLength = l;
+            sides[3].sideWidth = h;
+            sides[3].depth = depth;
+            sides[3].xCoord = 5;
+            sides[3].yCoord = 15 + h;
+
+            sides[4].type = "B";
+            sides[4].sideLength = w;
+            sides[4].sideWidth = h;
+            sides[4].depth = depth;
+            sides[4].xCoord = 15 + l;
+            sides[4].yCoord = 15 + h;
         }
     }
 
@@ -84,12 +129,10 @@ class Box
     {
         if(hasTop)
         {
-            sides[0].print();
-            sides[1].print();
-            sides[2].print();
-            sides[0].print();
-            sides[1].print();
-            sides[3].print();
+            for(int i = 0; i < sides.length; i++)
+            {
+                sides[i].print();
+            }
         }
         else
         {
