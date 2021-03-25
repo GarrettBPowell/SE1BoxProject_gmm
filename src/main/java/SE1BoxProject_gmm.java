@@ -8,6 +8,100 @@ import java.io.IOException;
 import java.util.*;
 import java.io.*;
 
+private class Side
+{
+    String type;
+    int sideLength, sideWidth;
+    double depth;
+
+    bool print()
+    {
+        
+    }
+}
+
+class Box
+{
+    int l, w, h;
+    bool hasTop = true;
+    Side[] sides;
+    double depth;
+    String fileName;
+
+    public Box(String name, bool top, int length, int width, int height, double thickness)
+    {
+        fileName = name;
+        l = length;
+        w = width;
+        h = height;
+        depth = thickness;
+
+        if(hasTop)
+        {
+            sides = new Side[4];
+            
+            sides[0].type = "A";
+            sides[0].sideLength = l;
+            sides[0].sideWidth = h;
+            sides[0].depth = depth;
+
+            sides[1].type = "B";
+            sides[1].sideLength = w;
+            sides[1].sideWidth = h;
+            sides[1].depth = depth;
+
+            sides[2].type = "Bot";
+            sides[2].sideLength = l;
+            sides[2].sideWidth = w;
+            sides[2].depth = depth;
+
+            sides[3] = sides[2];
+            sides[3].type = "Top";
+
+        }
+        else
+        {
+            sides = new Side[3];
+
+            sides[0].type = "A";
+            sides[0].sideLength = l;
+            sides[0].sideWidth = h;
+            sides[0].depth = depth;
+
+            sides[1].type = "B";
+            sides[1].sideLength = w;
+            sides[1].sideWidth = h;
+            sides[1].depth = depth;
+
+            sides[2].type = "Bot";
+            sides[2].sideLength = l;
+            sides[2].sideWidth = w;
+            sides[2].depth = depth;
+        }
+    }
+
+    public void printBox()
+    {
+        if(hasTop)
+        {
+            sides[0].print();
+            sides[1].print();
+            sides[2].print();
+            sides[0].print();
+            sides[1].print();
+            sides[3].print();
+        }
+        else
+        {
+            sides[0].print();
+            sides[1].print();
+            sides[2].print();
+            sides[0].print();
+            sides[1].print();
+        }
+    }
+}
+
 public class SE1BoxProject_gmm
 {
     public static String width = "0";
