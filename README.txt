@@ -31,7 +31,7 @@ Inception Deck:
 
 User Stories:
 
-1: User wants to make boxes with materials of different thicknesses.
+1: A home designer wants to make boxes for decoration around a house. In doing so, the user would like to use materials of different type and thicknesses so that they fit the other decorations in the house.
 
 Glossary:
 
