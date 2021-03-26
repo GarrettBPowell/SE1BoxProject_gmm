@@ -180,7 +180,7 @@ public class SE1BoxProject_gmmTest
 		}
     }
 	
-	@Test
+		@Test
     public void addPath3()
     {
         String  svgPath = "";
@@ -193,6 +193,86 @@ public class SE1BoxProject_gmmTest
         }
         catch (Exception e) {
             System.out.println("Failed to create path of size 3 \n" + svgPath);
+		}
+    }
+	
+	@Test
+    public void addPath448()
+    {
+        String  svgPath = "";
+        try{
+			String length = "4";
+			String width = "4";
+			String height = "8";
+            svgPath = box.pathCreation(length, width, height);
+			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h -2.0 v 1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h 2.0 v -1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
+        }
+        catch (Exception e) {
+            System.out.println("Failed to create path of size 4,4,8 \n" + svgPath);
+		}
+    }
+	
+	@Test
+    public void addPath456()
+    {
+        String  svgPath = "";
+        try{
+			String width = "4";
+			String length = "5";
+			String height = "6";
+            svgPath = box.pathCreation(length, width, height);
+			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
+        }
+        catch (Exception e) {
+            System.out.println("Failed to create path of size 4,5,6 \n" + svgPath);
+		}
+    }
+	
+	@Test
+    public void addPath774()
+    {
+        String  svgPath = "";
+        try{
+			String width = "7";
+			String length = "7";
+			String height = "4";
+            svgPath = box.pathCreation(length, width, height);
+			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
+        }
+        catch (Exception e) {
+            System.out.println("Failed to create path of size 7,7,4 \n" + svgPath);
+		}
+    }
+	
+	@Test
+    public void addPath778()
+    {
+        String  svgPath = "";
+        try{
+			String width = "7";
+			String length = "7";
+			String height = "8";
+            svgPath = box.pathCreation(length, width, height);
+			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
+        }
+        catch (Exception e) {
+            System.out.println("Failed to create path of size 7,7,8 \n" + svgPath);
+		}
+    }
+	
+	@Test
+    public void addPath444()
+    {
+        String  svgPath = "";
+        try{
+			String width = "4";
+			String length = "4";
+			String height = "4";
+            svgPath = box.pathCreation(length, width, height);
+			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h -2.0 v 1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h 2.0 v -1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
+        }
+        catch (Exception e) {
+            System.out.println("Failed to create path of size 4,4,4 \n" + svgPath);
 		}
     }
 }

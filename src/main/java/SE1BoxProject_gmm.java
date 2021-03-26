@@ -8,16 +8,17 @@ import java.io.IOException;
 import java.util.*;
 import java.io.*;
 
-private class Side
+/*WIP
+class Side
 {
     String type;
     int sideLength, sideWidth;
     double depth;
     int xCoord, yCoord;
 
-    bool print()
+    public static bool print()
     {
-        
+        return true;
     }
 }
 
@@ -144,6 +145,8 @@ class Box
         }
     }
 }
+*/
+
 
 public class SE1BoxProject_gmm
 {
