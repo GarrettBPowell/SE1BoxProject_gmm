@@ -28,7 +28,10 @@ Inception Deck:
     Customization beyond cubes and rectangular prisims
     
 10. Show what it’s going to take.
-  
+
+User Stories:
+
+1: User wants to make boxes with materials of different thicknesses.
 
 Glossary:
 
