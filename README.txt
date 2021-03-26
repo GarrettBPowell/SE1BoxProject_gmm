@@ -31,6 +31,8 @@ User Stories:
 
 1: A home designer wants to make boxes for decoration around a house. In doing so, the user would like to use materials of different type and thicknesses so that they fit the other decorations in the house.
 
+Complexity: 13
+
 Glossary:
 
 SVG (Scalable Vector Graphics) - an xml-based vector image format that supports two-dimensional graphics
