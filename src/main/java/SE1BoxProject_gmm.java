@@ -14,60 +14,65 @@ class Side
     int sideLength, sideWidth;
     double depth;
     int xCoord, yCoord;
-    public static boolean print()
+
+    public void print()
     {
-        return true;
+        System.out.print(type);
     }
 }
 class Box
 {
-    int l, w, h;
-    boolean hasTop = true;
-    Side[] sides;
-    double depth;
-    String fileName;
+    public int l, w, h;
+    public boolean hasTop;
+    public Side[] sides = new Side[6];
+    public double depth;
+    public String fileName;
     public Box(String name, boolean top, int length, int width, int height, double thickness)
     {
         fileName = name;
+        hasTop = top;
         l = length;
         w = width;
         h = height;
         depth = thickness;
-        //Check x/y coordinate order!!!
+
+        sides[0].type = "A";
+        sides[0].sideLength = l;
+        sides[0].sideWidth = h;
+        sides[0].depth = depth;
+        sides[0].xCoord = 5;
+        sides[0].yCoord = 5;
+
+        sides[1].type = "B";
+        sides[1].sideLength = w;
+        sides[1].sideWidth = h;
+        sides[1].depth = depth;
+        sides[1].xCoord = 15 + l;
+        sides[1].yCoord = 5;
+
+        sides[2].type = "Bot";
+        sides[2].sideLength = l;
+        sides[2].sideWidth = w;
+        sides[2].depth = depth;
+        sides[2].xCoord = 25 + l + w;
+        sides[2].yCoord = 5;
+
+        sides[3].type = "A";
+        sides[3].sideLength = l;
+        sides[3].sideWidth = h;
+        sides[3].depth = depth;
+        sides[3].xCoord = 5;
+        sides[3].yCoord = 15 + h;
+
+        sides[4].type = "B";
+        sides[4].sideLength = w;
+        sides[4].sideWidth = h;
+        sides[4].depth = depth;
+        sides[4].xCoord = 15 + l;
+        sides[4].yCoord = 15 + h;
+
         if(hasTop)
         {
-            sides = new Side[6];
-            
-            sides[0].type = "A";
-            sides[0].sideLength = l;
-            sides[0].sideWidth = h;
-            sides[0].depth = depth;
-            sides[0].xCoord = 5;
-            sides[0].yCoord = 5;
-            sides[1].type = "B";
-            sides[1].sideLength = w;
-            sides[1].sideWidth = h;
-            sides[1].depth = depth;
-            sides[1].xCoord = 15 + l;
-            sides[1].yCoord = 5;
-            sides[2].type = "Bot";
-            sides[2].sideLength = l;
-            sides[2].sideWidth = w;
-            sides[2].depth = depth;
-            sides[2].xCoord = 25 + l + w;
-            sides[2].yCoord = 5;
-            sides[3].type = "A";
-            sides[3].sideLength = l;
-            sides[3].sideWidth = h;
-            sides[3].depth = depth;
-            sides[3].xCoord = 5;
-            sides[3].yCoord = 15 + h;
-            sides[4].type = "B";
-            sides[4].sideLength = w;
-            sides[4].sideWidth = h;
-            sides[4].depth = depth;
-            sides[4].xCoord = 15 + l;
-            sides[4].yCoord = 15 + h;
             sides[5].type = "Top";
             sides[5].sideLength = l;
             sides[5].sideWidth = h;
@@ -75,49 +80,17 @@ class Box
             sides[5].xCoord = 25 + l + w;
             sides[5].yCoord = 15 + w;
         }
-        else
-        {
-            sides = new Side[5];
-            sides[0].type = "A";
-            sides[0].sideLength = l;
-            sides[0].sideWidth = h;
-            sides[0].depth = depth;
-            sides[0].xCoord = 5;
-            sides[0].yCoord = 5;
-            sides[1].type = "B";
-            sides[1].sideLength = w;
-            sides[1].sideWidth = h;
-            sides[1].depth = depth;
-            sides[1].xCoord = 15 + l;
-            sides[1].yCoord = 5;
-            sides[2].type = "Bot";
-            sides[2].sideLength = l;
-            sides[2].sideWidth = w;
-            sides[2].depth = depth;
-            sides[2].xCoord = 25 + l + w;
-            sides[2].yCoord = 5;
-            sides[3].type = "A";
-            sides[3].sideLength = l;
-            sides[3].sideWidth = h;
-            sides[3].depth = depth;
-            sides[3].xCoord = 5;
-            sides[3].yCoord = 15 + h;
-            sides[4].type = "B";
-            sides[4].sideLength = w;
-            sides[4].sideWidth = h;
-            sides[4].depth = depth;
-            sides[4].xCoord = 15 + l;
-            sides[4].yCoord = 15 + h;
-        }
     }
     public void printBox()
     {
         if(hasTop)
         {
-            for(int i = 0; i < sides.length; i++)
-            {
-                sides[i].print();
-            }
+            System.out.print("\nfgh");
+            // for(int i = 0; i < sides.length; i++)
+            // {
+            //     System.out.print(sides[i].type);//sides[i].print();
+            //     System.out.print("\n");
+            // }
         }
         else
         {
@@ -136,7 +109,9 @@ public class SE1BoxProject_gmm
     public static String length = "0";
     public static String height = "0";
     public static String thickness = "0";
-    public static String fileName;
+    public static String fileName = "empty";
+    public static String topBox = "NULL"; // here
+    public static boolean top = false;
 
     public static void main( String[] args )
     {
@@ -171,11 +146,33 @@ public class SE1BoxProject_gmm
             System.out.print("Enter the thickness of the material between (0.5-1.05)cm: ");
             thickness = sc.nextLine();
         }
-       
 
-        createFile(fileName);
+        while(!(topBox.equals("Y")) && !(topBox.equals("N")))
+        {
+            System.out.print("Do you wish to have a top layer on your box? (Y/N) ");
+            topBox = sc.nextLine();
+        }
+
+        if(topBox.equals("Y"))
+            top = true;
+       //Box newBox1 = new Box("Test",true,1,1,1,0.50);
+        Box newBox = new Box(fileName,top,Integer.parseInt(length),Integer.parseInt(width),Integer.parseInt(height),Double.parseDouble(thickness));
+        //System.out.print(newBox.sides[0].type);//newBox.printBox();
+        
+//public Box(String name, boolean top, int length, int width, int height, double thickness)
+        //testBoxClass();
+        //createFile(fileName);
     }
     
+    public static void testBoxClass()
+    {
+        // boolean top = false;
+        // if(topBox.equals("Y"))
+        //     top = true;
+        // Box newBox = new Box(fileName,top,Integer.parseInt(length),Integer.parseInt(width),Integer.parseInt(height),Double.parseDouble(thickness));
+        // newBox.printBox();
+    }
+
     public static boolean createFile(String fileName)
     {
         try 
