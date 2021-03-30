@@ -36,12 +36,17 @@ Complexity: 13
 Glossary:
 
 SVG (Scalable Vector Graphics) - an xml-based vector image format that supports two-dimensional graphics
+Teeth - the small notches in each side of the box that allows the sides to fit together (always 1 cm wide in the boxes this program creates)
 
 Usage:
 
 The program, when run, will output a string(s) of SVG, forming the walls of a box.
 
 Upon running the program, the user will be prompted for the desired length, width, and height of the box (between minimum and maximum values) in centimeters, as well as the thickness of the material.
+1. Run the program
+2. You will be prompted for the desired Length, Width, and Height of your box, as well as the thickness of the material and whether you want your box to have an open or closed top.
+	(These dimensions are in centimeters and must be in whole numbers, while material thickness can be a decimal between .5 and 1.5 cm)
+3. The program will produce an SVG file for the sides of the box, which you will need to bring into Adobe Illustrator to print on the laser cutter, using the recommended settings for your chosen material.
 
 Expected Output:
 
