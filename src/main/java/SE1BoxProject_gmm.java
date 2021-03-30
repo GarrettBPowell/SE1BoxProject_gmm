@@ -27,7 +27,13 @@ class Side
 
     public void printSide()
     {
-        System.out.print("It works over here!\n");
+        System.out.println("\nProperties of Side: ");
+        System.out.println("Type: "+ this.type);
+        System.out.println("sideLength: "+ this.sideLength);
+        System.out.println("sideWidth: "+ this.sideWidth);
+        System.out.println("Depth: "+ this.depth);
+        System.out.println("xCoord: "+ this.xCoord);
+        System.out.println("yCoord: "+ this.yCoord);
     }
 }
 class Box //extends Side
@@ -132,11 +138,8 @@ public class SE1BoxProject_gmm
         Box newBox = new Box(fileName,top,Integer.parseInt(length),Integer.parseInt(width),Integer.parseInt(height),Double.parseDouble(thickness));
         //newBox.printSide();
         newBox.printBox();
-        System.out.println(newBox.sides[5].type);
-        //System.out.println("Look here!: ");//+ newBox.sides[0].type);
-        //System.out.print(newBox.sides[0].type);//newBox.printBox();
-        
-//public Box(String name, boolean top, int length, int width, int height, double thickness)
+        System.out.println(newBox.sides[5].type+" This line printed too!");
+        newBox.sides[0].printSide();
         //testBoxClass();
         //createFile(fileName);
     }
