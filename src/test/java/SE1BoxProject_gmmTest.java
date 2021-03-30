@@ -273,7 +273,49 @@ public class SE1BoxProject_gmmTest
             assertEquals(expect, newBox.printBox());
         }
         catch (Exception e){
-            System.out.println("Failed to create box");
+            System.out.println("Failed to create box 4 by 4 by 4");
+        }
+    }
+	
+	@Test
+    public void makeBox555()
+    {
+		String expect = "A 5 5 0.5 5 5\nB 5 5 0.5 20 5\nBot 5 5 0.5 35 5\nA 5 5 0.5 5 20\nB 5 5 0.5 20 20\nTop 5 5 0.5 35 20\n";
+        String filename = "Make box";
+        Box newBox = new Box(filename, true, 5, 5, 5, 0.5);
+        try{
+            assertEquals(expect, newBox.printBox());
+        }
+        catch (Exception e){
+            System.out.println("Failed to create box 5 by 5 by 5");
+        }
+    }
+	
+	@Test
+    public void makeBox666()
+    {
+		String expect = "A 6 6 1.0 5 5\nB 6 6 1.0 21 5\nBot 6 6 1.0 37 5\nA 6 6 1.0 5 21\nB 6 6 1.0 21 21\nTop 6 6 1.0 37 21\n";
+        String filename = "Make box";
+        Box newBox = new Box(filename, true, 6, 6, 6, 1.0);
+        try{
+            assertEquals(expect, newBox.printBox());
+        }
+        catch (Exception e){
+            System.out.println("Failed to create box 6 by 6 by 6");
+        }
+    }
+	
+	@Test
+    public void makeBox777()
+    {
+		String expect = "A 7 7 1.0 5 5\nB 7 7 1.0 22 5\nBot 7 7 1.0 39 5\nA 7 7 1.0 5 22\nB 7 7 1.0 22 22\nTop 7 7 1.0 39 22\n";
+        String filename = "Make box";
+        Box newBox = new Box(filename, true, 7, 7, 7, 1.0);
+        try{
+            assertEquals(expect, newBox.printBox());
+        }
+        catch (Exception e){
+            System.out.println("Failed to create box 7 by 7 by 7");
         }
     }
 }
