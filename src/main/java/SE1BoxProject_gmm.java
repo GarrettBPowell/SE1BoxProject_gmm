@@ -10,23 +10,34 @@ import java.io.*;
 
 class Side
 {
-    String type;
-    int sideLength, sideWidth;
-    double depth;
-    int xCoord, yCoord;
+    public String type;
+    public int sideLength, sideWidth;
+    public double depth;
+    public int xCoord, yCoord;
 
-    public void print()
+    public Side(String letter, int length, int width, double deep, int x, int y)
     {
-        System.out.print(type);
+        this.type = letter;
+        this.sideLength = length;
+        this.sideWidth = width;
+        this.depth = deep;
+        this.xCoord = x;
+        this.yCoord = y;
+    }
+
+    public void printSide()
+    {
+        System.out.print("It works over here!\n");
     }
 }
-class Box
+class Box //extends Side
 {
     public int l, w, h;
     public boolean hasTop;
     public Side[] sides = new Side[6];
     public double depth;
     public String fileName;
+
     public Box(String name, boolean top, int length, int width, int height, double thickness)
     {
         fileName = name;
@@ -36,69 +47,31 @@ class Box
         h = height;
         depth = thickness;
 
-        sides[0].type = "A";
-        sides[0].sideLength = l;
-        sides[0].sideWidth = h;
-        sides[0].depth = depth;
-        sides[0].xCoord = 5;
-        sides[0].yCoord = 5;
-
-        sides[1].type = "B";
-        sides[1].sideLength = w;
-        sides[1].sideWidth = h;
-        sides[1].depth = depth;
-        sides[1].xCoord = 15 + l;
-        sides[1].yCoord = 5;
-
-        sides[2].type = "Bot";
-        sides[2].sideLength = l;
-        sides[2].sideWidth = w;
-        sides[2].depth = depth;
-        sides[2].xCoord = 25 + l + w;
-        sides[2].yCoord = 5;
-
-        sides[3].type = "A";
-        sides[3].sideLength = l;
-        sides[3].sideWidth = h;
-        sides[3].depth = depth;
-        sides[3].xCoord = 5;
-        sides[3].yCoord = 15 + h;
-
-        sides[4].type = "B";
-        sides[4].sideLength = w;
-        sides[4].sideWidth = h;
-        sides[4].depth = depth;
-        sides[4].xCoord = 15 + l;
-        sides[4].yCoord = 15 + h;
+        sides[0] = new Side("A",l,h,depth,5,5);
+        sides[1] = new Side("B",w,h,depth,15+l,5);
+        sides[2] = new Side("Bot",l,w,depth,25+l+w,5);
+        sides[3] = new Side("A",l,h,depth,5,15+h);
+        sides[4] = new Side("B",w,h,depth,15+l,15+h);
 
         if(hasTop)
-        {
-            sides[5].type = "Top";
-            sides[5].sideLength = l;
-            sides[5].sideWidth = h;
-            sides[5].depth = depth;
-            sides[5].xCoord = 25 + l + w;
-            sides[5].yCoord = 15 + w;
-        }
+            sides[5] = new Side("Top",l,h,depth,25+l+w,15+w);
     }
+
     public void printBox()
     {
         if(hasTop)
         {
-            System.out.print("\nfgh");
-            // for(int i = 0; i < sides.length; i++)
-            // {
-            //     System.out.print(sides[i].type);//sides[i].print();
-            //     System.out.print("\n");
-            // }
+            System.out.print("Works over here too!\n");
+            for(int i = 0; i < sides.length; i++)
+                System.out.println(sides[i].type);//sides[i].print();
         }
         else
         {
-            sides[0].print();
-            sides[1].print();
-            sides[2].print();
-            sides[0].print();
-            sides[1].print();
+            // sides[0].print();
+            // sides[1].print();
+            // sides[2].print();
+            // sides[0].print();
+            // sides[1].print();
         }
     }
 }
@@ -155,8 +128,12 @@ public class SE1BoxProject_gmm
 
         if(topBox.equals("Y"))
             top = true;
-       //Box newBox1 = new Box("Test",true,1,1,1,0.50);
+        //Box newBox1 = new Box("Test",true,1,1,1,0.50);
         Box newBox = new Box(fileName,top,Integer.parseInt(length),Integer.parseInt(width),Integer.parseInt(height),Double.parseDouble(thickness));
+        //newBox.printSide();
+        newBox.printBox();
+        System.out.println(newBox.sides[5].type);
+        //System.out.println("Look here!: ");//+ newBox.sides[0].type);
         //System.out.print(newBox.sides[0].type);//newBox.printBox();
         
 //public Box(String name, boolean top, int length, int width, int height, double thickness)
