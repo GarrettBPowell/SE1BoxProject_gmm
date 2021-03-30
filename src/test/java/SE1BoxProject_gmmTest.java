@@ -19,19 +19,6 @@ public class SE1BoxProject_gmmTest
     public void initialize() {
     box = new SE1BoxProject_gmm();
     }
-    
-    //test add func 1
-    @Test
-    public void helloBox() 
-    {
-        //testAdd1
-        try {
-
-        assert(true);
-        } catch (Exception e) {
-            System.out.println("Hello Box Error");
-        }
-    }
 
     @Test
     public void fileCreation()
