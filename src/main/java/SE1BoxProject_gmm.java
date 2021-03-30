@@ -25,15 +25,19 @@ class Side
         this.yCoord = y;
     }
 
-    public void printSide()
+    public String printSide()
     {
-        System.out.println("\nProperties of Side: ");
+		String sidereturn = this.type + " " + this.sideLength + " " + this.sideWidth + " " + this.depth + " " + this.xCoord + " " + this.yCoord;
+        
+		System.out.println("\nProperties of Side: ");
         System.out.println("Type: "+ this.type);
         System.out.println("sideLength: "+ this.sideLength);
         System.out.println("sideWidth: "+ this.sideWidth);
         System.out.println("Depth: "+ this.depth);
         System.out.println("xCoord: "+ this.xCoord);
         System.out.println("yCoord: "+ this.yCoord);
+		
+		return sidereturn;
     }
 }
 class Box //extends Side
@@ -63,16 +67,22 @@ class Box //extends Side
             sides[5] = new Side("Top",l,h,depth,25+l+w,15+w);
     }
 
-    public void printBox()
+    public String printBox()
     {
+		String boxreturn = "";
+		
         if(hasTop)
         {
-            System.out.print("Works over here too!\n");
             for(int i = 0; i < sides.length; i++)
-                System.out.println(sides[i].type);//sides[i].print();
+			{
+                //System.out.println(sides[i].type);//sides[i].print();
+				boxreturn = boxreturn + sides[i].printSide() + "\n";
+			}
+			return boxreturn;
         }
         else
         {
+			return boxreturn;
             // sides[0].print();
             // sides[1].print();
             // sides[2].print();

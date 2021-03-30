@@ -262,4 +262,18 @@ public class SE1BoxProject_gmmTest
             System.out.println("Failed to create path of size 4,4,4 \n" + svgPath);
 		}
     }
+	
+	@Test
+    public void makeBox444()
+    {
+		String expect = "A 4 4 1.0 5 5\nB 4 4 1.0 19 5\nBot 4 4 1.0 33 5\nA 4 4 1.0 5 19\nB 4 4 1.0 19 19\nTop 4 4 1.0 33 19\n";
+        String filename = "Make box";
+        Box newBox = new Box(filename, true, 4, 4, 4, 1.0);
+        try{
+            assertEquals(expect, newBox.printBox());
+        }
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
 }
