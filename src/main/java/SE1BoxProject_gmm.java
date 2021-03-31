@@ -64,7 +64,7 @@ class Box //extends Side
         sides[4] = new Side("B",w,h,depth,15+l,15+h);
 
         if(hasTop)
-            sides[5] = new Side("Top",l,h,depth,25+l+w,15+w);
+            sides[5] = new Side("Top",l,w,depth,25+l+w,15+w);
     }
 
     public String printBox()
