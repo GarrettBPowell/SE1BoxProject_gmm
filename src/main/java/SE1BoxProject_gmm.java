@@ -112,21 +112,21 @@ public class SE1BoxProject_gmm
 
         System.out.print("\nPlease enter the dimensions of the box.\n");
 
-        while((Integer.parseInt(width) < 4) || (Integer.parseInt(width) > 7))
+        while((Integer.parseInt(width) < 4) || (Integer.parseInt(width) > 19))
         {
-            System.out.print("Enter the width between (4.0-7.0)cm: ");
+            System.out.print("Enter the width between (4.0-19.0)cm: ");
             width = sc.nextLine();
         }
 
-        while((Integer.parseInt(length) < 4) || (Integer.parseInt(length) > 7))
+        while((Integer.parseInt(length) < 4) || (Integer.parseInt(length) > 19))
         {
-            System.out.print("Enter the length between (4.0-7.0)cm: ");
+            System.out.print("Enter the length between (4.0-19.0)cm: ");
             length = sc.nextLine();
         }
         
-        while((Integer.parseInt(height) < 4) || (Integer.parseInt(height) > 8))
+        while((Integer.parseInt(height) < 4) || (Integer.parseInt(height) > 21))
         {
-            System.out.print("Enter the height between (4.0-8.0)cm: ");
+            System.out.print("Enter the height between (4.0-21.0)cm: ");
             height = sc.nextLine();
         }
 
