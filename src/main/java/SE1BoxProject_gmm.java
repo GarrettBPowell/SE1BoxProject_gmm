@@ -27,17 +27,17 @@ class Side
 
     public String printSide()
     {
-		String sidereturn = this.type + " " + this.sideLength + " " + this.sideWidth + " " + this.depth + " " + this.xCoord + " " + this.yCoord;
+        String sidereturn = this.type + " " + this.sideLength + " " + this.sideWidth + " " + this.depth + " " + this.xCoord + " " + this.yCoord;
         
-		System.out.println("\nProperties of Side: ");
+        System.out.println("\nProperties of Side: ");
         System.out.println("Type: "+ this.type);
         System.out.println("sideLength: "+ this.sideLength);
         System.out.println("sideWidth: "+ this.sideWidth);
         System.out.println("Depth: "+ this.depth);
         System.out.println("xCoord: "+ this.xCoord);
         System.out.println("yCoord: "+ this.yCoord);
-		
-		return sidereturn;
+        
+        return sidereturn;
     }
 }
 class Box //extends Side
@@ -69,20 +69,20 @@ class Box //extends Side
 
     public String printBox()
     {
-		String boxreturn = "";
-		
+        String boxreturn = "";
+        
         if(hasTop)
         {
             for(int i = 0; i < sides.length; i++)
-			{
+            {
                 //System.out.println(sides[i].type);//sides[i].print();
-				boxreturn = boxreturn + sides[i].printSide() + "\n";
-			}
-			return boxreturn;
+                boxreturn = boxreturn + sides[i].printSide() + "\n";
+            }
+            return boxreturn;
         }
         else
         {
-			return boxreturn;
+            return boxreturn;
             // sides[0].print();
             // sides[1].print();
             // sides[2].print();
@@ -112,23 +112,30 @@ public class SE1BoxProject_gmm
 
         System.out.print("\nPlease enter the dimensions of the box.\n");
 
-        while((Integer.parseInt(width) < 4) || (Integer.parseInt(width) > 19))
-        {
-            System.out.print("Enter the width between (4.0-19.0)cm: ");
-            width = sc.nextLine();
-        }
+        System.out.print("Enter the width between (4.0-7.0)cm: ");
+        width = sc.nextLine();
+        System.out.print("Enter the length between (4.0-7.0)cm: ");
+        length = sc.nextLine();
+        System.out.print("Enter the height between (4.0-8.0)cm: ");
+        height = sc.nextLine();
 
-        while((Integer.parseInt(length) < 4) || (Integer.parseInt(length) > 19))
-        {
-            System.out.print("Enter the length between (4.0-19.0)cm: ");
-            length = sc.nextLine();
-        }
+        // while((Integer.parseInt(width) < 4) || (Integer.parseInt(width) > 7))
+        // {
+        //     System.out.print("Enter the width between (4.0-7.0)cm: ");
+        //     width = sc.nextLine();
+        // }
+
+        // while((Integer.parseInt(length) < 4) || (Integer.parseInt(length) > 7))
+        // {
+        //     System.out.print("Enter the length between (4.0-7.0)cm: ");
+        //     length = sc.nextLine();
+        // }
         
-        while((Integer.parseInt(height) < 4) || (Integer.parseInt(height) > 21))
-        {
-            System.out.print("Enter the height between (4.0-21.0)cm: ");
-            height = sc.nextLine();
-        }
+        // while((Integer.parseInt(height) < 4) || (Integer.parseInt(height) > 8))
+        // {
+        //     System.out.print("Enter the height between (4.0-8.0)cm: ");
+        //     height = sc.nextLine();
+        // }
 
         while((Double.parseDouble(thickness) < .5) || (Double.parseDouble(thickness) > 1.5))
         {
@@ -145,13 +152,13 @@ public class SE1BoxProject_gmm
         if(topBox.equals("Y"))
             top = true;
         //Box newBox1 = new Box("Test",true,1,1,1,0.50);
-        Box newBox = new Box(fileName,top,Integer.parseInt(length),Integer.parseInt(width),Integer.parseInt(height),Double.parseDouble(thickness));
+        //Box newBox = new Box(fileName,top,Integer.parseInt(length),Integer.parseInt(width),Integer.parseInt(height),Double.parseDouble(thickness));
         //newBox.printSide();
-        newBox.printBox();
-        System.out.println(newBox.sides[5].type+" This line printed too!");
-        newBox.sides[0].printSide();
+        // newBox.printBox();
+        // System.out.println(newBox.sides[5].type+" This line printed too!");
+        // newBox.sides[0].printSide();
         //testBoxClass();
-        //createFile(fileName);
+        createFile(fileName);
     }
     
     public static void testBoxClass()
@@ -168,6 +175,8 @@ public class SE1BoxProject_gmm
         try 
         {
             File newFile = new File(fileName + ".svg");
+            Box newBox = new Box(fileName,top,Integer.parseInt(length),Integer.parseInt(width),Integer.parseInt(height),Double.parseDouble(thickness));
+            //newBox.printSide();
             
             if (newFile.createNewFile()) {
                 System.out.println("File created: " + newFile.getName() + " in project folder");
@@ -179,9 +188,18 @@ public class SE1BoxProject_gmm
                     toFile.write("\n<g id=\"dovetail\" style=\"fill:none;stroke-linecap:round;stroke-linejoin:round;\">");
 
                     //create first side of box
-                    String newPath = pathCreation(length, width, height);
-                    System.out.println("New path created as: " + newPath); // here
-                    toFile.write("\n"+newPath);
+                    for(int i = 1; i <= 2; i++)
+                    {
+                        for(int j = 1; j <= 3; j++)
+                        {
+                            String newPath = pathCreation((Integer.parseInt(length)+10)*j,(Integer.parseInt(length)+10)*i);//(10*j,10*i)
+                            System.out.println("New path created as: " + newPath + "\n"); // here
+                            toFile.write("\n"+newPath);
+                        }
+                    }
+                    // String newPath = pathCreation();
+                    // System.out.println("New path created as: " + newPath); // here
+                    // toFile.write("\n"+newPath);
                     
                     //add xml file footers
                     toFile.write("\n</g>");
@@ -208,13 +226,14 @@ public class SE1BoxProject_gmm
         return false;
     }
 
-    public static String pathCreation(String length, String width, String height)
+    public static String pathCreation(int xCoordinate, int yCoordinate)
     {
         // v -> (+)up or (-)down
         // h -> (-)left or (+)right
         // width and height
         String example = "<path d=\"M 35.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
-        String svg = "  <path d=\"M 35.0 35.0 "; // v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
+        String svg = "  <path d=\"M "; // "" 35.0 35.0 "; // v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
+        svg += xCoordinate + ".0 " + yCoordinate + ".0";
 
         int w = Integer.parseInt(width);
         int l = Integer.parseInt(length);
