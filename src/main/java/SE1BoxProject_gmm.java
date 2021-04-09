@@ -1,6 +1,7 @@
 /**
  * SE1 Laser Box Project
  * Marlon Miller Matute, Garrett Powell, Michael Thorson
+ *
  */
  
 import java.io.File; 
