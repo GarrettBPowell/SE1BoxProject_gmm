@@ -60,8 +60,8 @@ public class SE1BoxProject_gmmTest
             assertEquals(secondLine, fromFile.readLine());
             assertEquals(thirdLine, fromFile.readLine());
 
-			fromFile.readLine();
-			
+            fromFile.readLine();
+            
             assertEquals(fourthLine, fromFile.readLine());
             assertEquals(fifthLine, fromFile.readLine());
         }
@@ -71,202 +71,202 @@ public class SE1BoxProject_gmmTest
     }
 
 
-	@Test
+    @Test
     public void addPath9()
     {
-		String  svgPath = "";
+        String  svgPath = "";
         try{
-			String width = "9";
-			String height = "9";
-			String length = "9";
+            String width = "9";
+            String height = "9";
+            String length = "9";
             svgPath = box.pathCreation(length, width, height);
-			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
+            assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
         }
         catch (Exception e) {
             System.out.println("Failed to create path of size 9\n " + svgPath);
-		}
+        }
     }
 
-	@Test
+    @Test
     public void addPath8()
     {
         String  svgPath = "";
         try{
-			String width = "8";
-			String height = "8";
-			String length = "8";
+            String width = "8";
+            String height = "8";
+            String length = "8";
             svgPath = box.pathCreation(length, width, height);
-			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
+            assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
         }
         catch (Exception e) {
             System.out.println("Failed to create path of size 8 \n" + svgPath);
-		}
+        }
     }
-	
-	@Test
+    
+    @Test
     public void addPath7()
     {
         String  svgPath = "";
         try{
-			String width = "7";
-			String height = "7";
-			String length = "7";
+            String width = "7";
+            String height = "7";
+            String length = "7";
             svgPath = box.pathCreation(length, width, height);
-			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
+            assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
         }
         catch (Exception e) {
             System.out.println("Failed to create path of size 7 \n" + svgPath);
-		}
+        }
     }
 
-	@Test
+    @Test
     public void addPath6()
     {
        String  svgPath = "";
         try{
-			String width = "6";
-			String height = "6";
-			String length = "6";
+            String width = "6";
+            String height = "6";
+            String length = "6";
             svgPath = box.pathCreation(length, width, height);
-			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
+            assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
         }
         catch (Exception e) {
             System.out.println("Failed to create path of size 6 \n" + svgPath);
-		}
+        }
     }
 
-	@Test
+    @Test
     public void addPath5()
     {
         String  svgPath = "";
         try{
-			String width = "5";
-			String height = "5";
-			String length = "5";
+            String width = "5";
+            String height = "5";
+            String length = "5";
             svgPath = box.pathCreation(length, width, height);
-			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
+            assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
         }
         catch (Exception e) {
             System.out.println("Failed to create path of size 5 \n" + svgPath);
-		}
+        }
     }
-	
-	@Test
+    
+    @Test
     public void addPath4()
     {
         String  svgPath = "";
         try{
-			String width = "4";
-			String height = "4";
-			String length = "4";
+            String width = "4";
+            String height = "4";
+            String length = "4";
             svgPath = box.pathCreation(length, width, height);
-			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h -2.0 v 1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h 2.0 v -1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
+            assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h -2.0 v 1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h 2.0 v -1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
         }
         catch (Exception e) {
             System.out.println("Failed to create path of size 4 \n" + svgPath );
-		}
+        }
     }
-	
-		@Test
+    
+        @Test
     public void addPath3()
     {
         String  svgPath = "";
         try{
-			String width = "3";
-			String height = "3";
-			String length = "3";
+            String width = "3";
+            String height = "3";
+            String length = "3";
             svgPath = box.pathCreation(length, width, height);
-			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -2.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 2.0 v -1.0 h 1.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
+            assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -2.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 2.0 v -1.0 h 1.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
         }
         catch (Exception e) {
             System.out.println("Failed to create path of size 3 \n" + svgPath);
-		}
+        }
     }
-	
-	@Test
+    
+    @Test
     public void addPath448()
     {
         String  svgPath = "";
         try{
-			String length = "4";
-			String width = "4";
-			String height = "8";
+            String length = "4";
+            String width = "4";
+            String height = "8";
             svgPath = box.pathCreation(length, width, height);
-			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h -2.0 v 1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h 2.0 v -1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
+            assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h -2.0 v 1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h 2.0 v -1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
         }
         catch (Exception e) {
             System.out.println("Failed to create path of size 4,4,8 \n" + svgPath);
-		}
+        }
     }
-	
-	@Test
+    
+    @Test
     public void addPath456()
     {
         String  svgPath = "";
         try{
-			String width = "4";
-			String length = "5";
-			String height = "6";
+            String width = "4";
+            String length = "5";
+            String height = "6";
             svgPath = box.pathCreation(length, width, height);
-			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
+            assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
         }
         catch (Exception e) {
             System.out.println("Failed to create path of size 4,5,6 \n" + svgPath);
-		}
+        }
     }
-	
-	@Test
+    
+    @Test
     public void addPath774()
     {
         String  svgPath = "";
         try{
-			String width = "7";
-			String length = "7";
-			String height = "4";
+            String width = "7";
+            String length = "7";
+            String height = "4";
             svgPath = box.pathCreation(length, width, height);
-			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
+            assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
         }
         catch (Exception e) {
             System.out.println("Failed to create path of size 7,7,4 \n" + svgPath);
-		}
+        }
     }
-	
-	@Test
+    
+    @Test
     public void addPath778()
     {
         String  svgPath = "";
         try{
-			String width = "7";
-			String length = "7";
-			String height = "8";
+            String width = "7";
+            String length = "7";
+            String height = "8";
             svgPath = box.pathCreation(length, width, height);
-			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
+            assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
         }
         catch (Exception e) {
             System.out.println("Failed to create path of size 7,7,8 \n" + svgPath);
-		}
+        }
     }
-	
-	@Test
+    
+    @Test
     public void addPath444()
     {
         String  svgPath = "";
         try{
-			String width = "4";
-			String length = "4";
-			String height = "4";
+            String width = "4";
+            String length = "4";
+            String height = "4";
             svgPath = box.pathCreation(length, width, height);
-			assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h -2.0 v 1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h 2.0 v -1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
+            assertEquals("  <path d=\"M 35.0 35.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h -2.0 v 1.0 h -2.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h 2.0 v -1.0 h 2.0 \" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />", svgPath);
         }
         catch (Exception e) {
             System.out.println("Failed to create path of size 4,4,4 \n" + svgPath);
-		}
+        }
     }
-	
-	@Test
+    
+    @Test
     public void makeBox444()
     {
-		String expect = "A 4 4 1.0 5 5\nB 4 4 1.0 19 5\nBot 4 4 1.0 33 5\nA 4 4 1.0 5 19\nB 4 4 1.0 19 19\nTop 4 4 1.0 33 19\n";
+        String expect = "A 4 4 1.0 5 5\nB 4 4 1.0 19 5\nBot 4 4 1.0 33 5\nA 4 4 1.0 5 19\nB 4 4 1.0 19 19\nTop 4 4 1.0 33 19\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 4, 4, 4, 1.0);
         try{
@@ -276,11 +276,11 @@ public class SE1BoxProject_gmmTest
             System.out.println("Failed to create box 4 by 4 by 4");
         }
     }
-	
-	@Test
+    
+    @Test
     public void makeBox555()
     {
-		String expect = "A 5 5 0.5 5 5\nB 5 5 0.5 20 5\nBot 5 5 0.5 35 5\nA 5 5 0.5 5 20\nB 5 5 0.5 20 20\nTop 5 5 0.5 35 20\n";
+        String expect = "A 5 5 0.5 5 5\nB 5 5 0.5 20 5\nBot 5 5 0.5 35 5\nA 5 5 0.5 5 20\nB 5 5 0.5 20 20\nTop 5 5 0.5 35 20\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 5, 5, 5, 0.5);
         try{
@@ -290,11 +290,11 @@ public class SE1BoxProject_gmmTest
             System.out.println("Failed to create box 5 by 5 by 5");
         }
     }
-	
-	@Test
+    
+    @Test
     public void makeBox666()
     {
-		String expect = "A 6 6 1.0 5 5\nB 6 6 1.0 21 5\nBot 6 6 1.0 37 5\nA 6 6 1.0 5 21\nB 6 6 1.0 21 21\nTop 6 6 1.0 37 21\n";
+        String expect = "A 6 6 1.0 5 5\nB 6 6 1.0 21 5\nBot 6 6 1.0 37 5\nA 6 6 1.0 5 21\nB 6 6 1.0 21 21\nTop 6 6 1.0 37 21\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 6, 6, 6, 1.0);
         try{
@@ -304,11 +304,11 @@ public class SE1BoxProject_gmmTest
             System.out.println("Failed to create box 6 by 6 by 6");
         }
     }
-	
-	@Test
+    
+    @Test
     public void makeBox777()
     {
-		String expect = "A 7 7 1.0 5 5\nB 7 7 1.0 22 5\nBot 7 7 1.0 39 5\nA 7 7 1.0 5 22\nB 7 7 1.0 22 22\nTop 7 7 1.0 39 22\n";
+        String expect = "A 7 7 1.0 5 5\nB 7 7 1.0 22 5\nBot 7 7 1.0 39 5\nA 7 7 1.0 5 22\nB 7 7 1.0 22 22\nTop 7 7 1.0 39 22\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 7, 7, 7, 1.0);
         try{
@@ -322,7 +322,7 @@ public class SE1BoxProject_gmmTest
     @Test
     public void makeBox456()
     {
-		String expect = "A 4 6 1.0 5 5\nB 5 6 1.0 19 5\nBot 4 5 1.0 34 5\nA 4 6 1.0 5 21\nB 5 6 1.0 19 21\nTop 4 5 1.0 34 20\n";
+        String expect = "A 4 6 1.0 5 5\nB 5 6 1.0 19 5\nBot 4 5 1.0 34 5\nA 4 6 1.0 5 21\nB 5 6 1.0 19 21\nTop 4 5 1.0 34 20\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 4, 5, 6, 1.0);
         try{
@@ -336,7 +336,7 @@ public class SE1BoxProject_gmmTest
     @Test
     public void makeBox567()
     {
-		String expect = "A 5 7 1.0 5 5\nB 6 7 1.0 20 5\nBot 5 6 1.0 36 5\nA 5 7 1.0 5 22\nB 6 7 1.0 20 22\nTop 5 6 1.0 36 21\n";
+        String expect = "A 5 7 1.0 5 5\nB 6 7 1.0 20 5\nBot 5 6 1.0 36 5\nA 5 7 1.0 5 22\nB 6 7 1.0 20 22\nTop 5 6 1.0 36 21\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 5, 6, 7, 1.0);
         try{
@@ -346,10 +346,10 @@ public class SE1BoxProject_gmmTest
             System.out.println("Failed to create box");
         }
     }
-	@Test
+    @Test
     public void makeBox191921()
     {
-		String expect = "A 19 21 1.0 5 5\nB 19 21 1.0 34 5\nBot 19 19 1.0 63 5\nA 19 21 1.0 5 36\nB 19 21 1.0 34 36\nTop 19 19 1.0 63 34\n";
+        String expect = "A 19 21 1.0 5 5\nB 19 21 1.0 34 5\nBot 19 19 1.0 63 5\nA 19 21 1.0 5 36\nB 19 21 1.0 34 36\nTop 19 19 1.0 63 34\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 19, 19, 21, 1.0);
         try{
@@ -359,10 +359,10 @@ public class SE1BoxProject_gmmTest
             System.out.println("Failed to create box");
         }
     }
-	@Test
-	public void makeBox19194()
+    @Test
+    public void makeBox19194()
     {
-		String expect = "A 19 4 1.0 5 5\nB 19 4 1.0 34 5\nBot 19 19 1.0 63 5\nA 19 4 1.0 5 19\nB 19 4 1.0 34 19\nTop 19 19 1.0 63 34\n";
+        String expect = "A 19 4 1.0 5 5\nB 19 4 1.0 34 5\nBot 19 19 1.0 63 5\nA 19 4 1.0 5 19\nB 19 4 1.0 34 19\nTop 19 19 1.0 63 34\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 19, 19, 4, 1.0);
         try{
@@ -372,10 +372,10 @@ public class SE1BoxProject_gmmTest
             System.out.println("Failed to create box");
         }
     }
-	@Test
-	public void makeBox4421()
+    @Test
+    public void makeBox4421()
     {
-		String expect = "A 4 21 1.0 5 5\nB 4 21 1.0 19 5\nBot 4 4 1.0 33 5\nA 4 21 1.0 5 36\nB 4 21 1.0 19 36\nTop 4 4 1.0 33 19\n";
+        String expect = "A 4 21 1.0 5 5\nB 4 21 1.0 19 5\nBot 4 4 1.0 33 5\nA 4 21 1.0 5 36\nB 4 21 1.0 19 36\nTop 4 4 1.0 33 19\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 4, 4, 21, 1.0);
         try{
@@ -385,10 +385,10 @@ public class SE1BoxProject_gmmTest
             System.out.println("Failed to create box");
         }
     }
-	@Test
-	public void makeBox41921()
+    @Test
+    public void makeBox41921()
     {
-		String expect = "A 4 21 1.0 5 5\nB 19 21 1.0 19 5\nBot 4 19 1.0 48 5\nA 4 21 1.0 5 36\nB 19 21 1.0 19 36\nTop 4 19 1.0 48 34\n";
+        String expect = "A 4 21 1.0 5 5\nB 19 21 1.0 19 5\nBot 4 19 1.0 48 5\nA 4 21 1.0 5 36\nB 19 21 1.0 19 36\nTop 4 19 1.0 48 34\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 4, 19, 21, 1.0);
         try{
@@ -398,10 +398,10 @@ public class SE1BoxProject_gmmTest
             System.out.println("Failed to create box");
         }
     }
-	@Test
-	public void makeBox19421()
+    @Test
+    public void makeBox19421()
     {
-		String expect = "A 19 21 1.0 5 5\nB 4 21 1.0 34 5\nBot 19 4 1.0 48 5\nA 19 21 1.0 5 36\nB 4 21 1.0 34 36\nTop 19 4 1.0 48 19\n";
+        String expect = "A 19 21 1.0 5 5\nB 4 21 1.0 34 5\nBot 19 4 1.0 48 5\nA 19 21 1.0 5 36\nB 4 21 1.0 34 36\nTop 19 4 1.0 48 19\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 19, 4, 21, 1.0);
         try{
