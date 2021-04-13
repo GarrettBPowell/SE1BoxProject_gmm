@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="SE1BoxProject_gmmTest" time="0.304" tests="20" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="SE1BoxProject_gmmTest" time="0.189" tests="25" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-15.0.1\bin"/>
-    <property name="sun.java.command" value="C:\Users\mthor\AppData\Local\Temp\surefire10009526258258041655\surefirebooter14339400598610256487.jar C:\Users\mthor\AppData\Local\Temp\surefire10009526258258041655 2021-03-30T19-32-20_096-jvmRun1 surefire2325278380477337286tmp surefire_010539759920218310698tmp"/>
+    <property name="sun.java.command" value="C:\Users\mthor\AppData\Local\Temp\surefire14704199507507281469\surefirebooter14497964719441153422.jar C:\Users\mthor\AppData\Local\Temp\surefire14704199507507281469 2021-04-09T10-29-10_341-jvmRun1 surefire14332021023615555569tmp surefire_015797685555722973083tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\mthor\Programs\Java\SE1\SE1BoxProject_gmm\target\test-classes;C:\Users\mthor\Programs\Java\SE1\SE1BoxProject_gmm\target\classes;C:\Users\mthor\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\mthor\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\mthor\AppData\Local\Temp\surefire10009526258258041655\surefirebooter14339400598610256487.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\mthor\AppData\Local\Temp\surefire14704199507507281469\surefirebooter14497964719441153422.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="15.0.1+9-18"/>
@@ -55,24 +55,29 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="59.0"/>
   </properties>
-  <testcase name="addPath3" classname="SE1BoxProject_gmmTest" time="0.002"/>
+  <testcase name="addPath3" classname="SE1BoxProject_gmmTest" time="0.004"/>
   <testcase name="addPath4" classname="SE1BoxProject_gmmTest" time="0"/>
   <testcase name="addPath5" classname="SE1BoxProject_gmmTest" time="0"/>
   <testcase name="addPath6" classname="SE1BoxProject_gmmTest" time="0"/>
   <testcase name="addPath7" classname="SE1BoxProject_gmmTest" time="0.001"/>
-  <testcase name="addPath8" classname="SE1BoxProject_gmmTest" time="0"/>
-  <testcase name="addPath9" classname="SE1BoxProject_gmmTest" time="0"/>
-  <testcase name="makeBox444" classname="SE1BoxProject_gmmTest" time="0.047"/>
-  <testcase name="makeBox456" classname="SE1BoxProject_gmmTest" time="0.042"/>
-  <testcase name="makeBox555" classname="SE1BoxProject_gmmTest" time="0.038"/>
-  <testcase name="makeBox567" classname="SE1BoxProject_gmmTest" time="0.041"/>
-  <testcase name="makeBox666" classname="SE1BoxProject_gmmTest" time="0.047"/>
-  <testcase name="makeBox777" classname="SE1BoxProject_gmmTest" time="0.04"/>
-  <testcase name="fileCreation" classname="SE1BoxProject_gmmTest" time="0.008"/>
+  <testcase name="addPath8" classname="SE1BoxProject_gmmTest" time="0.001"/>
+  <testcase name="addPath9" classname="SE1BoxProject_gmmTest" time="0.001"/>
+  <testcase name="makeBox19194" classname="SE1BoxProject_gmmTest" time="0.005"/>
+  <testcase name="makeBox19421" classname="SE1BoxProject_gmmTest" time="0.001"/>
+  <testcase name="makeBox41921" classname="SE1BoxProject_gmmTest" time="0.001"/>
+  <testcase name="makeBox444" classname="SE1BoxProject_gmmTest" time="0.001"/>
+  <testcase name="makeBox456" classname="SE1BoxProject_gmmTest" time="0"/>
+  <testcase name="makeBox555" classname="SE1BoxProject_gmmTest" time="0.001"/>
+  <testcase name="makeBox567" classname="SE1BoxProject_gmmTest" time="0.001"/>
+  <testcase name="makeBox666" classname="SE1BoxProject_gmmTest" time="0.001"/>
+  <testcase name="makeBox777" classname="SE1BoxProject_gmmTest" time="0.002"/>
+  <testcase name="fileCreation" classname="SE1BoxProject_gmmTest" time="0.029"/>
   <testcase name="addPath444" classname="SE1BoxProject_gmmTest" time="0"/>
   <testcase name="addPath448" classname="SE1BoxProject_gmmTest" time="0"/>
   <testcase name="addPath456" classname="SE1BoxProject_gmmTest" time="0"/>
   <testcase name="addPath774" classname="SE1BoxProject_gmmTest" time="0"/>
   <testcase name="addPath778" classname="SE1BoxProject_gmmTest" time="0"/>
-  <testcase name="fileCreationAndRead" classname="SE1BoxProject_gmmTest" time="0.006"/>
+  <testcase name="makeBox4421" classname="SE1BoxProject_gmmTest" time="0"/>
+  <testcase name="fileCreationAndRead" classname="SE1BoxProject_gmmTest" time="0.029"/>
+  <testcase name="makeBox191921" classname="SE1BoxProject_gmmTest" time="0"/>
 </testsuite>
