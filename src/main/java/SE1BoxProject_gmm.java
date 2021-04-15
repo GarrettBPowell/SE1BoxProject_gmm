@@ -109,27 +109,50 @@ public class SE1BoxProject_gmm
 
         System.out.print("\nPlease enter the dimensions of the box.\n");
 
-        while((Integer.parseInt(width) < 4) || (Integer.parseInt(width) > 19))
+        while(true)
         {
+			if(checkNum(width))
+			{
+				width = "" + ((int)Double.parseDouble(width));
+				if(!(Integer.parseInt(width) < 4) || (Integer.parseInt(width) > 19))
+					break;
+			}
             System.out.print("Enter the width between (4.0-19.0)cm: ");
             width = sc.nextLine();
         }
 
-        while((Integer.parseInt(length) < 4) || (Integer.parseInt(length) > 19))
+        while(true)
         {
+			if(checkNum(length))
+			{
+				length = "" + ((int)Double.parseDouble(length));
+				if(!(Integer.parseInt(length) < 4) || (Integer.parseInt(length) > 19))
+					break;
+			}
             System.out.print("Enter the length between (4.0-19.0)cm: ");
             length = sc.nextLine();
         }
         
-        while((Integer.parseInt(height) < 4) || (Integer.parseInt(height) > 21))
+        while(true)
         {
+			if(checkNum(height))
+			{
+				height = "" + ((int)Double.parseDouble(height));
+				if(!(Integer.parseInt(height) < 4) || (Integer.parseInt(height) > 21))
+					break;
+			}
             System.out.print("Enter the height between (4.0-21.0)cm: ");
             height = sc.nextLine();
         }
 
-        while((Double.parseDouble(thickness) < .5) || (Double.parseDouble(thickness) > 1.5))
+        while(true)
         {
-            System.out.print("Enter the thickness of the material between (0.5-1.05)cm: ");
+			if(checkNum(thickness))
+			{
+				if(!(Double.parseDouble(thickness) < .5) || (Double.parseDouble(thickness) > 1.5))
+					break;
+			}
+            System.out.print("Enter the thickness of the material between (0.5-1.5)cm: ");
             thickness = sc.nextLine();
         }
 
@@ -146,6 +169,22 @@ public class SE1BoxProject_gmm
         testBoxClass(newBox);
         //createFile(fileName);
     }
+	
+	public static boolean checkNum(String s)
+	{
+		try{
+			if(!s.contains("."))
+				Integer.parseInt(s);
+						
+			Double.parseDouble(s);
+			
+			return true;
+		}
+		catch (NumberFormatException e) 
+        {
+            return false;
+        }
+	}
 
     public static String removal(String path) {
         if(path.charAt(path.length()-1) == '-')
