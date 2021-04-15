@@ -117,7 +117,7 @@ public class SE1BoxProject_gmm
 				if(!(Integer.parseInt(width) < 4) || (Integer.parseInt(width) > 19))
 					break;
 			}
-            System.out.print("Enter the width between (4.0-19.0)cm: ");
+            System.out.print("Enter a whole number for the width between (4.0-19.0)cm: ");
             width = sc.nextLine();
         }
 
@@ -129,7 +129,7 @@ public class SE1BoxProject_gmm
 				if(!(Integer.parseInt(length) < 4) || (Integer.parseInt(length) > 19))
 					break;
 			}
-            System.out.print("Enter the length between (4.0-19.0)cm: ");
+            System.out.print("Enter a whole number for the length between (4.0-19.0)cm: ");
             length = sc.nextLine();
         }
         
@@ -141,7 +141,7 @@ public class SE1BoxProject_gmm
 				if(!(Integer.parseInt(height) < 4) || (Integer.parseInt(height) > 21))
 					break;
 			}
-            System.out.print("Enter the height between (4.0-21.0)cm: ");
+            System.out.print("Enter a whole number for the height between (4.0-21.0)cm: ");
             height = sc.nextLine();
         }
 
