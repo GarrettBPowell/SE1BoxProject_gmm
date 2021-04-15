@@ -411,4 +411,82 @@ public class SE1BoxProject_gmmTest
             System.out.println("Failed to create box");
         }
     }
+	@Test
+    public void oddoddodd555SideA()
+    {
+		SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, true, 5, 5, 5, 1.0);
+        try{
+            assertTrue(classTest.OddOddOdd(newBox, 0).contains("M 5.0 5.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 h 1.0v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
+        }
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
+	@Test
+    public void oddoddodd555SideB()
+    {
+		SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, true, 5, 5, 5, 1.0);
+        try{
+            assertTrue(classTest.OddOddOdd(newBox, 1).contains("M 20.0 5.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 h 1.0v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
+        }
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
+	@Test
+    public void oddoddodd555SideA2()
+    {
+		SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, true, 5, 5, 5, 1.0);
+        try{
+            assertTrue(classTest.OddOddOdd(newBox, 2).contains("M 35.0 5.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 h 1.0v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
+        }
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
+	@Test
+    public void oddoddodd555SideB2()
+    {
+		SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, true, 5, 5, 5, 1.0);
+        try{
+            assertTrue(classTest.OddOddOdd(newBox, 3).contains("M 5.0 20.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 h 1.0v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
+        }
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
+	@Test
+    public void oddoddodd555SideBot()
+    {
+		SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, true, 5, 5, 5, 1.0);
+        try{
+            assertTrue(classTest.OddOddOdd(newBox, 4).contains("M 20.0 20.0 v -1.0 h 1.0 v -1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
+        }
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
+	@Test
+    public void oddoddodd555SideTop()
+    {
+		SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, true, 5, 5, 5, 1.0);
+        try{
+            assertTrue(classTest.OddOddOdd(newBox, 5).contains("M 35.0 20.0 v -1.0 h 1.0 v -1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
+        }
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
 }
