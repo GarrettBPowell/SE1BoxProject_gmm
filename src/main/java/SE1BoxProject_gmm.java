@@ -67,6 +67,15 @@ class Box //extends Side
 
         if(hasTop)
             sides[5] = new Side("Top",l,w,depth,25+l+w,15+w);
+        
+        // sides[0] = new Side("A",l,h,depth,5,5); // new Side("A",l,h,depth,5,5);
+        // sides[1] = new Side("A",l,h,depth,15+l,5);
+        // sides[2] = new Side("B",w,h,depth,25+l+w,5);
+        // sides[3] = new Side("B",w,h,depth,5,15+h);
+        // sides[4] = new Side("Bot",l,w,depth,15+l,15+h);
+
+        // if(hasTop)
+        //     sides[5] = new Side("Top",l,w,depth,25+l+w,15+w);
     }
 
     public String printBox()
@@ -109,50 +118,27 @@ public class SE1BoxProject_gmm
 
         System.out.print("\nPlease enter the dimensions of the box.\n");
 
-        while(true)
+        while((Integer.parseInt(width) < 4) || (Integer.parseInt(width) > 19))
         {
-			if(checkNum(width))
-			{
-				width = "" + ((int)Double.parseDouble(width));
-				if(!(Integer.parseInt(width) < 4) || (Integer.parseInt(width) > 19))
-					break;
-			}
-            System.out.print("Enter a whole number for the width between (4.0-19.0)cm: ");
+            System.out.print("Enter the width between (4.0-19.0)cm: ");
             width = sc.nextLine();
         }
 
-        while(true)
+        while((Integer.parseInt(length) < 4) || (Integer.parseInt(length) > 19))
         {
-			if(checkNum(length))
-			{
-				length = "" + ((int)Double.parseDouble(length));
-				if(!(Integer.parseInt(length) < 4) || (Integer.parseInt(length) > 19))
-					break;
-			}
-            System.out.print("Enter a whole number for the length between (4.0-19.0)cm: ");
+            System.out.print("Enter the length between (4.0-19.0)cm: ");
             length = sc.nextLine();
         }
         
-        while(true)
+        while((Integer.parseInt(height) < 4) || (Integer.parseInt(height) > 21))
         {
-			if(checkNum(height))
-			{
-				height = "" + ((int)Double.parseDouble(height));
-				if(!(Integer.parseInt(height) < 4) || (Integer.parseInt(height) > 21))
-					break;
-			}
-            System.out.print("Enter a whole number for the height between (4.0-21.0)cm: ");
+            System.out.print("Enter the height between (4.0-21.0)cm: ");
             height = sc.nextLine();
         }
 
-        while(true)
+        while((Double.parseDouble(thickness) < .5) || (Double.parseDouble(thickness) > 1.5))
         {
-			if(checkNum(thickness))
-			{
-				if(!(Double.parseDouble(thickness) < .5) || (Double.parseDouble(thickness) > 1.5))
-					break;
-			}
-            System.out.print("Enter the thickness of the material between (0.5-1.5)cm: ");
+            System.out.print("Enter the thickness of the material between (0.5-1.05)cm: ");
             thickness = sc.nextLine();
         }
 
@@ -169,22 +155,6 @@ public class SE1BoxProject_gmm
         testBoxClass(newBox);
         //createFile(fileName);
     }
-	
-	public static boolean checkNum(String s)
-	{
-		try{
-			if(!s.contains("."))
-				Integer.parseInt(s);
-						
-			Double.parseDouble(s);
-			
-			return true;
-		}
-		catch (NumberFormatException e) 
-        {
-            return false;
-        }
-	}
 
     public static String removal(String path) {
         if(path.charAt(path.length()-1) == '-')
@@ -216,9 +186,9 @@ public class SE1BoxProject_gmm
                 if(i == 0)
                 {
                     int movement = 0, teeth = 0;
-                    while(movement < B.sides[0].sideLength)
+                    while(movement < B.sides[index].sideLength)
                     {
-                        if(movement+1 == B.sides[0].sideLength) {
+                        if(movement+1 == B.sides[index].sideLength) {
                             svg += "h 1.0";
                             movement += 2; break;
                         }
@@ -248,7 +218,7 @@ public class SE1BoxProject_gmm
                 {
                     int movement = 2, teeth = 1;
                     svg += "h -2.0 ";
-                    while(movement < B.sides[0].sideLength)
+                    while(movement < B.sides[index].sideLength)
                     {
 
                         if(teeth % 2 == 0) {
@@ -276,7 +246,7 @@ public class SE1BoxProject_gmm
                     if(reverse == "-")
                         movement++;
 
-                    while(movement < B.sides[0].sideWidth)
+                    while(movement < B.sides[index].sideWidth)
                     {
                         if(teeth % 2 == 0) {
                             svg += "v " + reverse; // reverse
@@ -343,7 +313,7 @@ public class SE1BoxProject_gmm
                     if(i == 3)
                     {
                         int movement = 2, teeth = 3;
-                        while(movement+2 < B.sides[0].sideWidth)
+                        while(movement+2 < B.sides[index].sideWidth)
                         {
                             if(teeth % 2 == 0) {
                                 svg += "v -";
@@ -365,7 +335,7 @@ public class SE1BoxProject_gmm
                         int movement = 2, teeth = 0;
                         if(i == 2) 
                             teeth = 2;
-                        while(movement+1 < B.sides[0].sideLength)
+                        while(movement+1 < B.sides[index].sideLength)
                         {
                             if(teeth % 2 == 0) {
                                 svg += "h "+reverse; // reverse
@@ -396,7 +366,7 @@ public class SE1BoxProject_gmm
                     else
                     {
                         int movement = 2, teeth = 1;
-                        while(movement+1 < B.sides[0].sideWidth)
+                        while(movement+1 < B.sides[index].sideWidth)
                         {
                             if(teeth % 2 == 0) {
                                 svg += "v "+neg;
@@ -744,3 +714,4 @@ public class SE1BoxProject_gmm
                     //         toFile.write("\n"+newPath);
                     //     }
                     // }
+
