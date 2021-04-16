@@ -1,0 +1,7 @@
+User Stories:
+
+1: A home designer wants to make boxes for decoration around a house. In doing so, the user would like to use materials of different type and thicknesses so that they fit the other decorations in the house.
+
+2: A teacher would like to make boxes without tops to hold pencils, pens, and other school supplies in her classroom. So she would like to be able to make a box without a top.
+
+3. A mom would like to make nested alphabet boxes for her kid. To do so she would like the boxes to be able to fit inside one another and have different sized letters on the side.
