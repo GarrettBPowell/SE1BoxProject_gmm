@@ -59,23 +59,23 @@ class Box //extends Side
         depth = thickness;
 
         //String newPath = sixSides((Integer.parseInt(length)+10)*j,(Integer.parseInt(length)+10)*i);//(10*j,10*i)
-        sides[0] = new Side("A",l,h,depth,5,5); // new Side("A",l,h,depth,5,5);
-        sides[1] = new Side("B",w,h,depth,15+l,5);
-        sides[2] = new Side("Bot",l,w,depth,25+l+w,5);
-        sides[3] = new Side("A",l,h,depth,5,15+h);
-        sides[4] = new Side("B",w,h,depth,15+l,15+h);
-
-        if(hasTop)
-            sides[5] = new Side("Top",l,w,depth,25+l+w,15+w);
-        
         // sides[0] = new Side("A",l,h,depth,5,5); // new Side("A",l,h,depth,5,5);
-        // sides[1] = new Side("A",l,h,depth,15+l,5);
-        // sides[2] = new Side("B",w,h,depth,25+l+w,5);
-        // sides[3] = new Side("B",w,h,depth,5,15+h);
-        // sides[4] = new Side("Bot",l,w,depth,15+l,15+h);
+        // sides[1] = new Side("B",w,h,depth,15+l,5);
+        // sides[2] = new Side("Bot",l,w,depth,25+l+w,5);
+        // sides[3] = new Side("A",l,h,depth,5,15+h);
+        // sides[4] = new Side("B",w,h,depth,15+l,15+h);
 
         // if(hasTop)
         //     sides[5] = new Side("Top",l,w,depth,25+l+w,15+w);
+
+        sides[0] = new Side("A",l,h,depth,5,5); // new Side("A",l,h,depth,5,5);
+        sides[1] = new Side("A",l,h,depth,15+l,5);
+        sides[2] = new Side("B",w,h,depth,25+l+w,5);
+        sides[3] = new Side("B",w,h,depth,5,15+h);
+        sides[4] = new Side("Bot",l,w,depth,15+l,15+h);
+
+        if(hasTop)
+            sides[5] = new Side("Top",l,w,depth,25+l+w,15+w);
     }
 
     public String printBox()
@@ -162,6 +162,119 @@ public class SE1BoxProject_gmm
         return path;
     }
 
+    public static String EvenEvenEven(Box B, int index)
+    {
+        String svg = "  <path d=\"M "; // 
+        svg += B.sides[index].xCoord + ".0 " + B.sides[index].yCoord + ".0 ";
+
+        for(int i = 0; i < 4; i++)
+        {
+            String neg = "-";
+            String reverse = "";
+            String v = "v";
+            String h = "h";
+
+            if(i >= 2) {
+                neg = "";
+                reverse = "-";
+            }
+            boolean addTwo = true;
+            int movement = 0, teeth = 0;
+            int length = B.sides[index].sideLength;
+
+            if(i % 2 == 1) {
+                length = B.sides[index].sideWidth-1;
+                v = "h"; h = "v"; 
+                addTwo = false;
+            }
+
+            if(index <= 3)
+            {
+                while(movement < length)
+                {
+                    if(((movement == 0 || movement+2 == length) && teeth % 2 == 0) && addTwo) {
+                        svg += h+" "+reverse+"2.0 ";
+                        movement += 2;
+                        teeth++;
+                    }
+
+                    else 
+                    {
+                        if(teeth % 2 == 0) {
+                            svg += h+" "+reverse;
+                            movement++;
+                        }
+                        else
+                            svg += v+" "+neg;
+
+                        if(teeth % 3 == 0 && teeth != 0) {
+                            teeth = 0;
+                            if(neg == "-")
+                                svg = removal(svg);
+                            else
+                                svg += "-";
+                        }
+
+                        else {
+                            teeth++;
+                        }
+
+                        svg += "1.0 ";
+                    }
+                }
+            }
+            else
+            {
+                if(i % 2 == 0)
+                    length--;
+
+                if(i == 1) {
+                    neg = "";
+                    reverse = "";
+                }
+                if(i == 3) {
+                    neg = "-";
+                    reverse = "-";
+                }
+
+                while(movement < length)
+                {
+                    if(movement == 0) {
+                        svg += h+" "+reverse+"2.0 "; 
+                        movement += 2;
+                        teeth++;
+                    }
+
+                    else 
+                    {
+                        if(teeth % 2 == 0) {
+                            svg += h+" "+reverse;
+                            movement++;
+                        }
+                        else
+                            svg += v+" "+neg;
+
+                        if(teeth % 3 == 0 && teeth != 0) {
+                            teeth = 0;
+                            if(neg == "-")
+                                svg = removal(svg);
+                            else
+                                svg += "-";
+                        }
+
+                        else {
+                            teeth++;
+                        }
+
+                        svg += "1.0 ";
+                    }
+                }
+            }
+        }
+
+        svg += "\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
+        return svg;
+    }
     public static String OddOddOdd(Box B, int index)
     {
         // v -> (-)up or (+)down
@@ -406,8 +519,8 @@ public class SE1BoxProject_gmm
             return "OddOddEven";
         else if(B.l % 2 == 0 && B.w % 2 == 0 && B.h % 2 == 1)
             return "EvenEvenOdd";
-        else if(B.l % 2 == 0 && B.w % 2 == 0 && B.h % 2 == 0)
-            return "EvenEvenEven";
+        else if(B.l % 2 == 0 && B.w % 2 == 0 && (B.h % 2 == 0 || B.h % 2 == 1))
+            return EvenEvenEven(B,index);
         else if(B.l % 2 == 0 && B.w % 2 == 1 && B.h % 2 == 1)
             return "EvenOddOdd";
 
@@ -439,8 +552,8 @@ public class SE1BoxProject_gmm
                         System.out.println("New path created: " + BoxType(B,i));
                     }
 
-                    // toFile.write("\n" + BoxType(B));
-                    // System.out.println("New path created: " + BoxType(B));
+                    // toFile.write("\n" + BoxType(B,0));
+                    // System.out.println("New path created: " + BoxType(B,0));
                     
                     //add xml file footers
                     toFile.write("\n</g>");
@@ -714,4 +827,3 @@ public class SE1BoxProject_gmm
                     //         toFile.write("\n"+newPath);
                     //     }
                     // }
-
