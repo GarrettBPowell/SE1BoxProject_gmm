@@ -190,6 +190,16 @@ public class SE1BoxProject_gmm
 
             if(index <= 3)
             {
+                if(B.h % 2 == 1 && i == 1) 
+                    length++;
+                if(B.h % 2 == 1 && i == 3)
+                    length--;
+                
+                if(B.h % 2 == 1 && i == 2) {
+                    neg = "-";
+                    reverse = "-";
+                }
+
                 while(movement < length)
                 {
                     if(((movement == 0 || movement+2 == length) && teeth % 2 == 0) && addTwo) {
@@ -515,12 +525,10 @@ public class SE1BoxProject_gmm
     {
         if(B.l % 2 == 1 && B.w % 2 == 1 && B.h % 2 == 1)
             return OddOddOdd(B,index);
-        else if(B.l % 2 == 1 && B.w % 2 == 1 && B.h % 2 == 0)
-            return "OddOddEven";
-        else if(B.l % 2 == 0 && B.w % 2 == 0 && B.h % 2 == 1)
-            return "EvenEvenOdd";
         else if(B.l % 2 == 0 && B.w % 2 == 0 && (B.h % 2 == 0 || B.h % 2 == 1))
             return EvenEvenEven(B,index);
+        else if(B.l % 2 == 1 && B.w % 2 == 1 && B.h % 2 == 0)
+            return "OddOddEven";
         else if(B.l % 2 == 0 && B.w % 2 == 1 && B.h % 2 == 1)
             return "EvenOddOdd";
 
@@ -817,13 +825,3 @@ public class SE1BoxProject_gmm
 }
 
 
-                    //create first side of box
-                    // for(int i = 1; i <= 2; i++)
-                    // {
-                    //     for(int j = 1; j <= 3; j++)
-                    //     {
-                    //         String newPath = sixSides((Integer.parseInt(length)+10)*j,(Integer.parseInt(length)+10)*i);//(10*j,10*i)
-                    //         System.out.println("New path created as: " + newPath + "\n"); // here
-                    //         toFile.write("\n"+newPath);
-                    //     }
-                    // }
