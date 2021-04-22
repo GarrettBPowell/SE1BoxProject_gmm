@@ -266,7 +266,7 @@ public class SE1BoxProject_gmmTest
     @Test
     public void makeBox444()
     {
-        String expect = "A 4 4 1.0 5 5\nB 4 4 1.0 19 5\nBot 4 4 1.0 33 5\nA 4 4 1.0 5 19\nB 4 4 1.0 19 19\nTop 4 4 1.0 33 19\n";
+        String expect = "A 4 4 1.0 5 5\nA 4 4 1.0 19 5\nB 4 4 1.0 33 5\nB 4 4 1.0 5 19\nBot 4 4 1.0 19 19\nTop 4 4 1.0 33 19\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 4, 4, 4, 1.0);
         try{
@@ -280,7 +280,7 @@ public class SE1BoxProject_gmmTest
     @Test
     public void makeBox555()
     {
-        String expect = "A 5 5 0.5 5 5\nB 5 5 0.5 20 5\nBot 5 5 0.5 35 5\nA 5 5 0.5 5 20\nB 5 5 0.5 20 20\nTop 5 5 0.5 35 20\n";
+        String expect = "A 5 5 0.5 5 5\nA 5 5 0.5 20 5\nB 5 5 0.5 35 5\nB 5 5 0.5 5 20\nBot 5 5 0.5 20 20\nTop 5 5 0.5 35 20\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 5, 5, 5, 0.5);
         try{
@@ -294,7 +294,7 @@ public class SE1BoxProject_gmmTest
     @Test
     public void makeBox666()
     {
-        String expect = "A 6 6 1.0 5 5\nB 6 6 1.0 21 5\nBot 6 6 1.0 37 5\nA 6 6 1.0 5 21\nB 6 6 1.0 21 21\nTop 6 6 1.0 37 21\n";
+        String expect = "A 6 6 1.0 5 5\nA 6 6 1.0 21 5\nB 6 6 1.0 37 5\nB 6 6 1.0 5 21\nBot 6 6 1.0 21 21\nTop 6 6 1.0 37 21\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 6, 6, 6, 1.0);
         try{
@@ -308,7 +308,7 @@ public class SE1BoxProject_gmmTest
     @Test
     public void makeBox777()
     {
-        String expect = "A 7 7 1.0 5 5\nB 7 7 1.0 22 5\nBot 7 7 1.0 39 5\nA 7 7 1.0 5 22\nB 7 7 1.0 22 22\nTop 7 7 1.0 39 22\n";
+        String expect = "A 7 7 1.0 5 5\nA 7 7 1.0 22 5\nB 7 7 1.0 39 5\nB 7 7 1.0 5 22\nBot 7 7 1.0 22 22\nTop 7 7 1.0 39 22\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 7, 7, 7, 1.0);
         try{
@@ -322,7 +322,7 @@ public class SE1BoxProject_gmmTest
     @Test
     public void makeBox456()
     {
-        String expect = "A 4 6 1.0 5 5\nB 5 6 1.0 19 5\nBot 4 5 1.0 34 5\nA 4 6 1.0 5 21\nB 5 6 1.0 19 21\nTop 4 5 1.0 34 20\n";
+        String expect = "A 4 6 1.0 5 5\nA 4 6 1.0 19 5\nB 5 6 1.0 34 5\nB 5 6 1.0 5 21\nBot 4 5 1.0 19 21\nTop 4 5 1.0 34 20\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 4, 5, 6, 1.0);
         try{
@@ -336,7 +336,7 @@ public class SE1BoxProject_gmmTest
     @Test
     public void makeBox567()
     {
-        String expect = "A 5 7 1.0 5 5\nB 6 7 1.0 20 5\nBot 5 6 1.0 36 5\nA 5 7 1.0 5 22\nB 6 7 1.0 20 22\nTop 5 6 1.0 36 21\n";
+        String expect = "A 5 7 1.0 5 5\nA 5 7 1.0 20 5\nB 6 7 1.0 36 5\nB 6 7 1.0 5 22\nBot 5 6 1.0 20 22\nTop 5 6 1.0 36 21\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 5, 6, 7, 1.0);
         try{
@@ -349,7 +349,7 @@ public class SE1BoxProject_gmmTest
     @Test
     public void makeBox191921()
     {
-        String expect = "A 19 21 1.0 5 5\nB 19 21 1.0 34 5\nBot 19 19 1.0 63 5\nA 19 21 1.0 5 36\nB 19 21 1.0 34 36\nTop 19 19 1.0 63 34\n";
+        String expect = "A 19 21 1.0 5 5\nA 19 21 1.0 34 5\nB 19 21 1.0 63 5\nB 19 21 1.0 5 36\nBot 19 19 1.0 34 36\nTop 19 19 1.0 63 34\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 19, 19, 21, 1.0);
         try{
@@ -362,7 +362,7 @@ public class SE1BoxProject_gmmTest
     @Test
     public void makeBox19194()
     {
-        String expect = "A 19 4 1.0 5 5\nB 19 4 1.0 34 5\nBot 19 19 1.0 63 5\nA 19 4 1.0 5 19\nB 19 4 1.0 34 19\nTop 19 19 1.0 63 34\n";
+        String expect = "A 19 4 1.0 5 5\nA 19 4 1.0 34 5\nB 19 4 1.0 63 5\nB 19 4 1.0 5 19\nBot 19 19 1.0 34 19\nTop 19 19 1.0 63 34\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 19, 19, 4, 1.0);
         try{
@@ -375,7 +375,7 @@ public class SE1BoxProject_gmmTest
     @Test
     public void makeBox4421()
     {
-        String expect = "A 4 21 1.0 5 5\nB 4 21 1.0 19 5\nBot 4 4 1.0 33 5\nA 4 21 1.0 5 36\nB 4 21 1.0 19 36\nTop 4 4 1.0 33 19\n";
+        String expect = "A 4 21 1.0 5 5\nA 4 21 1.0 19 5\nB 4 21 1.0 33 5\nB 4 21 1.0 5 36\nBot 4 4 1.0 19 36\nTop 4 4 1.0 33 19\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 4, 4, 21, 1.0);
         try{
@@ -388,7 +388,7 @@ public class SE1BoxProject_gmmTest
     @Test
     public void makeBox41921()
     {
-        String expect = "A 4 21 1.0 5 5\nB 19 21 1.0 19 5\nBot 4 19 1.0 48 5\nA 4 21 1.0 5 36\nB 19 21 1.0 19 36\nTop 4 19 1.0 48 34\n";
+        String expect = "A 4 21 1.0 5 5\nA 4 21 1.0 19 5\nB 19 21 1.0 48 5\nB 19 21 1.0 5 36\nBot 4 19 1.0 19 36\nTop 4 19 1.0 48 34\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 4, 19, 21, 1.0);
         try{
@@ -401,7 +401,7 @@ public class SE1BoxProject_gmmTest
     @Test
     public void makeBox19421()
     {
-        String expect = "A 19 21 1.0 5 5\nB 4 21 1.0 34 5\nBot 19 4 1.0 48 5\nA 19 21 1.0 5 36\nB 4 21 1.0 34 36\nTop 19 4 1.0 48 19\n";
+        String expect = "A 19 21 1.0 5 5\nA 19 21 1.0 34 5\nB 4 21 1.0 48 5\nB 4 21 1.0 5 36\nBot 19 4 1.0 34 36\nTop 19 4 1.0 48 19\n";
         String filename = "Make box";
         Box newBox = new Box(filename, true, 19, 4, 21, 1.0);
         try{
