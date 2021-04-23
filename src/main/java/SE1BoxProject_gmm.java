@@ -572,11 +572,11 @@ public class SE1BoxProject_gmm
             }
             else 
             {
-                System.out.println("Failed to create file, file may already exist, please delete file, or move file");
+				System.out.println("Failed to create file, file may already exist, please delete file, or move file");
                 System.out.print("\nEnter a different SVG Filename: ");
                 Scanner sc = new Scanner(System.in);
                 fileName = sc.nextLine();
-                createFile(fileName);
+                testBoxClass(B);
                 return false;
             }
         } 
