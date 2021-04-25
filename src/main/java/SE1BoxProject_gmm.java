@@ -299,6 +299,8 @@ public class SE1BoxProject_gmm
             {
                 String neg = "-";
                 String reverse = "";
+                String v = "v";
+                String h = "h";
 
                 if(i >= 2)
                 {
@@ -306,91 +308,158 @@ public class SE1BoxProject_gmm
                     reverse = "-";
                 }
 
-                if(i == 0)
+                if(B.h % 2 == 0)
                 {
+                    boolean addTwo = true;
+                    int length = B.sides[index].sideLength;
                     int movement = 0, teeth = 0;
-                    while(movement < B.sides[index].sideLength)
-                    {
-                        if(movement+1 == B.sides[index].sideLength) {
-                            svg += "h 1.0";
-                            movement += 2; break;
-                        }
 
-                        if(teeth % 2 == 0) {
-                            svg += "h ";
-                            movement++;
-                        }
-
-                        else
-                            svg += "v -";
-
-                        if(teeth % 3 == 0 && teeth != 0) {
-                            svg = removal(svg); 
-                            teeth = 0;
-                        }
-
-                        else {
-                            teeth++;
-                        }
-
-                        svg += "1.0 ";
+                    if(i == 2) {
+                        neg = "-";
+                        reverse = "-";
                     }
-                }   
 
-                else if(i == 2)
-                {
-                    int movement = 2, teeth = 1;
-                    svg += "h -2.0 ";
-                    while(movement < B.sides[index].sideLength)
-                    {
-
-                        if(teeth % 2 == 0) {
-                            svg += "h -";
-                            movement++;
-                        }
-
-                        else {
-                            svg += "v -";
-                        }
-
-                        if(teeth % 3 == 0 && teeth != 0) {
-                            teeth = 0;
-                            svg = removal(svg);
-                        }
-                        else
-                            teeth++;
-
-                        svg += "1.0 ";
-                    }
-                }
-                else
-                {
-                    int movement = 0, teeth = 0;
-                    if(reverse == "-")
+                    if(i == 3)
                         movement++;
 
-                    while(movement < B.sides[index].sideWidth)
+                    if(i % 2 == 1) {
+                        length = B.sides[index].sideWidth;
+                        v = "h"; h = "v"; 
+                        addTwo = false;
+                    }
+
+                    int jump = 0;
+                    if( i == 0) 
+                        jump = length-2;
+
+                    while(movement < length)
                     {
-                        if(teeth % 2 == 0) {
-                            svg += "v " + reverse; // reverse
-                            movement++;
-                        }
-                        else
-                            svg += "h " + neg; // neg -
-
-
-                        if(teeth % 3 == 0 && teeth != 0) { 
-                            teeth = 0;
-                            if(neg == "-")
-                                svg = removal(svg);
-                            else
-                                svg += "-";
-                        }
-                        else {
+                        if(((movement == jump) && teeth % 2 == 0) && addTwo) {
+                            svg += h+" "+reverse+"2.0 ";
+                            movement += 2;
                             teeth++;
                         }
 
-                        svg += "1.0 ";
+                        else if(((movement == (length/2)-1) && teeth % 2 == 0) && !addTwo) {
+                            svg += h + " "+reverse+"2.0";
+                            movement+= 2; teeth++;
+                        }
+
+                        else 
+                        {
+                            if(teeth % 2 == 0) {
+                                svg += h+" "+reverse;
+                                movement++;
+                            }
+                            else
+                                svg += v+" "+neg;
+
+                            if(teeth % 3 == 0 && teeth != 0) {
+                                teeth = 0;
+                                if(neg == "-")
+                                    svg = removal(svg);
+                                else
+                                    svg += "-";
+                            }
+
+                            else {
+                                teeth++;
+                            }
+
+                            svg += "1.0 ";
+                        }
+
+                    }
+                }
+
+                else
+                {
+                    if(i == 0)
+                    {
+                        int movement = 0, teeth = 0;
+                        while(movement < B.sides[index].sideLength)
+                        {
+                            if(movement+1 == B.sides[index].sideLength) {
+                                svg += "h 1.0";
+                                movement += 2; break;
+                            }
+
+                            if(teeth % 2 == 0) {
+                                svg += "h ";
+                                movement++;
+                            }
+
+                            else
+                                svg += "v -";
+
+                            if(teeth % 3 == 0 && teeth != 0) {
+                                svg = removal(svg); 
+                                teeth = 0;
+                            }
+
+                            else {
+                                teeth++;
+                            }
+
+                            svg += "1.0 ";
+                        }
+                    }   
+
+                    else if(i == 2)
+                    {
+                        int movement = 2, teeth = 1;
+                        svg += "h -2.0 ";
+                        while(movement < B.sides[index].sideLength)
+                        {
+
+                            if(teeth % 2 == 0) {
+                                svg += "h -";
+                                movement++;
+                            }
+
+                            else {
+                                svg += "v -";
+                            }
+
+                            if(teeth % 3 == 0 && teeth != 0) {
+                                teeth = 0;
+                                svg = removal(svg);
+                            }
+                            else
+                                teeth++;
+
+                            svg += "1.0 ";
+                        }
+                    }
+                    else
+                    {
+                        int movement = 0, teeth = 0;
+                        if(reverse == "-")
+                            movement++;
+
+                        while(movement < B.sides[index].sideWidth)
+                        {
+                            if(teeth % 2 == 0) {
+                                svg += "v " + reverse; // reverse
+                                movement++;
+                            }
+                            else
+                                svg += "h " + neg; // neg -
+
+
+                            if(teeth % 3 == 0 && teeth != 0) { 
+                                teeth = 0;
+                                if(neg == "-")
+                                    svg = removal(svg);
+                                else
+                                    svg += "-";
+                            }
+                            else {
+                                teeth++;
+                            }
+
+                            svg += "1.0 ";
+                        }
                     }
                 }
             }
@@ -523,12 +592,12 @@ public class SE1BoxProject_gmm
 
     public static String BoxType(Box B, int index)
     {
-        if(B.l % 2 == 1 && B.w % 2 == 1 && B.h % 2 == 1)
+        if(B.l % 2 == 1 && B.w % 2 == 1 && (B.h % 2 == 1 || B.h % 2 == 0)) 
             return OddOddOdd(B,index);
         else if(B.l % 2 == 0 && B.w % 2 == 0 && (B.h % 2 == 0 || B.h % 2 == 1))
             return EvenEvenEven(B,index);
-        else if(B.l % 2 == 1 && B.w % 2 == 1 && B.h % 2 == 0)
-            return "OddOddEven";
+        // else if(B.l % 2 == 1 && B.w % 2 == 1 && B.h % 2 == 0)
+        //     return "OddOddEven";
         else if(B.l % 2 == 0 && B.w % 2 == 1 && B.h % 2 == 1)
             return "EvenOddOdd";
 
@@ -572,11 +641,11 @@ public class SE1BoxProject_gmm
             }
             else 
             {
-				System.out.println("Failed to create file, file may already exist, please delete file, or move file");
+                System.out.println("Failed to create file, file may already exist, please delete file, or move file");
                 System.out.print("\nEnter a different SVG Filename: ");
                 Scanner sc = new Scanner(System.in);
                 fileName = sc.nextLine();
-                testBoxClass(B);
+                createFile(fileName);
                 return false;
             }
         } 
