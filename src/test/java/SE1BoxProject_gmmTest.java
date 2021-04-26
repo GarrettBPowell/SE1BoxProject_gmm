@@ -554,4 +554,74 @@ public class SE1BoxProject_gmmTest
             System.out.println("Failed to create box");
         }
     }
+	@Test
+    public void Odd_Even_Odd_A_and_Bot()
+    {
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, true, 5, 6, 7, 1.5);
+        try{
+            assertTrue(classTest.Odd_Even_EvenorOdd(newBox, 0).contains("M 5.0 5.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -2.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0"));
+			assertTrue(classTest.Odd_Even_EvenorOdd(newBox, 4).contains("M 21.0 22.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 2.0 h 1.0 v 1.0 h -1.0 v 1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -2.0 h -1.0 v -1.0 h 1.0 v -1.0"));
+		}
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
+	@Test
+    public void Odd_Even_Even_A2_and_B2()
+    {
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, false, 5, 6, 6, 1.0);
+        try{
+            assertTrue(classTest.Odd_Even_EvenorOdd(newBox, 1).contains("M 21.0 5.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -2.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0"));
+			assertTrue(classTest.Odd_Even_EvenorOdd(newBox, 3).contains("M 5.0 21.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -2.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
+		}
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
+	@Test
+    public void Even_Odd_Odd_A2_and_Top()
+    {
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, true, 8, 9, 11, 0.5);
+        try{
+            assertTrue(classTest.Even_Odd_OddorEven(newBox, 1).contains("M 23.0 5.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -2.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0"));
+			assertTrue(classTest.Even_Odd_OddorEven(newBox, 5).contains("M 42.0 24.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 2.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -2.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
+		}
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
+	@Test
+    public void Even_Odd_Even_A1_and_B2()
+    {
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, false, 8, 9, 12, 1.0);
+        try{
+            assertTrue(classTest.Even_Odd_OddorEven(newBox, 0).contains("M 5.0 5.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -2.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0"));
+			assertTrue(classTest.Even_Odd_OddorEven(newBox, 3).contains("M 5.0 27.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -2.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
+		}
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
+	@Test
+    public void Odd_Odd_Even_A_and_B()
+    {
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, true, 17, 15, 8, 1.0);
+        try{
+            assertTrue(classTest.Odd_Odd_OddorEven(newBox, 0).contains("M 5.0 5.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 2.0h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -2.0h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
+			assertTrue(classTest.Odd_Odd_OddorEven(newBox, 2).contains("M 57.0 5.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 2.0h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -2.0h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
+		}
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
 }
