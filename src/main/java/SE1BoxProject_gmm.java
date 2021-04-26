@@ -58,16 +58,6 @@ class Box //extends Side
         h = height;
         depth = thickness;
 
-        //String newPath = sixSides((Integer.parseInt(length)+10)*j,(Integer.parseInt(length)+10)*i);//(10*j,10*i)
-        // sides[0] = new Side("A",l,h,depth,5,5); // new Side("A",l,h,depth,5,5);
-        // sides[1] = new Side("B",w,h,depth,15+l,5);
-        // sides[2] = new Side("Bot",l,w,depth,25+l+w,5);
-        // sides[3] = new Side("A",l,h,depth,5,15+h);
-        // sides[4] = new Side("B",w,h,depth,15+l,15+h);
-
-        // if(hasTop)
-        //     sides[5] = new Side("Top",l,w,depth,25+l+w,15+w);
-
         sides[0] = new Side("A",l,h,depth,5,5); // new Side("A",l,h,depth,5,5);
         sides[1] = new Side("A",l,h,depth,15+l,5);
         sides[2] = new Side("B",w,h,depth,25+l+w,5);
@@ -118,21 +108,21 @@ public class SE1BoxProject_gmm
 
         System.out.print("\nPlease enter the dimensions of the box.\n");
 
-        while((Integer.parseInt(length) < 4) || (Integer.parseInt(length) > 19))
+        while((Integer.parseInt(length) < 5) || (Integer.parseInt(length) > 19))
         {
-            System.out.print("Enter the length between (4.0-19.0)cm: ");
+            System.out.print("Enter the length between (5.0-19.0)cm: ");
             length = sc.nextLine();
         }
 
-        while((Integer.parseInt(width) < 4) || (Integer.parseInt(width) > 19))
+        while((Integer.parseInt(width) < 5) || (Integer.parseInt(width) > 19))
         {
-            System.out.print("Enter the width between (4.0-19.0)cm: ");
+            System.out.print("Enter the width between (5.0-19.0)cm: ");
             width = sc.nextLine();
         }
         
-        while((Integer.parseInt(height) < 4) || (Integer.parseInt(height) > 21))
+        while((Integer.parseInt(height) < 5) || (Integer.parseInt(height) > 21))
         {
-            System.out.print("Enter the height between (4.0-21.0)cm: ");
+            System.out.print("Enter the height between (5.0-21.0)cm: ");
             height = sc.nextLine();
         }
 
@@ -160,6 +150,12 @@ public class SE1BoxProject_gmm
         if(path.charAt(path.length()-1) == '-')
             path = path.substring(0,path.length()-1);
         return path;
+    }
+
+    public static String Odd_Even_EvenorOdd(Box B, int index)
+    {
+        Box newBox = new Box(B.fileName,B.hasTop,B.w,B.l,B.h,B.depth);
+        return Even_Odd_OddorEven(newBox,index);
     }
 
     public static String Even_Odd_OddorEven(Box B, int index)
@@ -724,15 +720,14 @@ public class SE1BoxProject_gmm
 
     public static String BoxType(Box B, int index)
     {
-        if(B.l % 2 == 1 && B.w % 2 == 1 && (B.h % 2 == 1 || B.h % 2 == 0)) 
+        if(B.l % 2 == 1 && B.w % 2 == 1 && ((B.h % 2 == 1 || B.h % 2 == 0))) 
             return Odd_Odd_OddorEven(B,index);
-        else if(B.l % 2 == 0 && B.w % 2 == 0 && (B.h % 2 == 0 || B.h % 2 == 1))
+        if(B.l % 2 == 0 && B.w % 2 == 0 && ((B.h % 2 == 0 || B.h % 2 == 1)))
             return Even_Even_EvenorOdd(B,index);
-        else if(B.l % 2 == 0 && B.w % 2 == 1 && (B.h % 2 == 1) || (B.h % 2 == 0))
+        if(B.l % 2 == 0 && B.w % 2 == 1 && ((B.h % 2 == 1) || (B.h % 2 == 0)))
             return Even_Odd_OddorEven(B,index);
 
-        return "EvenOddEven";
-
+        return Odd_Even_EvenorOdd(B,index);
     }
     
     public static boolean testBoxClass(Box B)
