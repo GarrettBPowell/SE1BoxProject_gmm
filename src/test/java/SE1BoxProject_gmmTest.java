@@ -411,146 +411,146 @@ public class SE1BoxProject_gmmTest
             System.out.println("Failed to create box");
         }
     }
-	@Test
-    public void oddoddodd555SideA()
+    @Test
+    public void Odd_Odd_OddorEven555SideA()
     {
-		SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
         String filename = "Make box";
         Box newBox = new Box(filename, true, 5, 5, 5, 1.0);
         try{
-            assertTrue(classTest.OddOddOdd(newBox, 0).contains("M 5.0 5.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 h 1.0v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
+            assertTrue(classTest.Odd_Odd_OddorEven(newBox, 0).contains("M 5.0 5.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 h 1.0v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
         }
         catch (Exception e){
             System.out.println("Failed to create box");
         }
     }
-	@Test
-    public void oddoddodd555SideB()
+    @Test
+    public void Odd_Odd_OddorEven555SideB()
     {
-		SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
         String filename = "Make box";
         Box newBox = new Box(filename, true, 5, 5, 5, 1.0);
         try{
-            assertTrue(classTest.OddOddOdd(newBox, 1).contains("M 20.0 5.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 h 1.0v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
+            assertTrue(classTest.Odd_Odd_OddorEven(newBox, 1).contains("M 20.0 5.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 h 1.0v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
         }
         catch (Exception e){
             System.out.println("Failed to create box");
         }
     }
-	@Test
-    public void oddoddodd555SideA2()
+    @Test
+    public void Odd_Odd_OddorEven555SideA2()
     {
-		SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
         String filename = "Make box";
         Box newBox = new Box(filename, true, 5, 5, 5, 1.0);
         try{
-            assertTrue(classTest.OddOddOdd(newBox, 2).contains("M 35.0 5.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 h 1.0v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
+            assertTrue(classTest.Odd_Odd_OddorEven(newBox, 2).contains("M 35.0 5.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 h 1.0v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
         }
         catch (Exception e){
             System.out.println("Failed to create box");
         }
     }
-	@Test
-    public void oddoddodd555SideB2()
+    @Test
+    public void Odd_Odd_OddorEven555SideB2()
     {
-		SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
         String filename = "Make box";
         Box newBox = new Box(filename, true, 5, 5, 5, 1.0);
         try{
-            assertTrue(classTest.OddOddOdd(newBox, 3).contains("M 5.0 20.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 h 1.0v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
+            assertTrue(classTest.Odd_Odd_OddorEven(newBox, 3).contains("M 5.0 20.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 h 1.0v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
         }
         catch (Exception e){
             System.out.println("Failed to create box");
         }
     }
-	@Test
-    public void oddoddodd555SideBot()
+    @Test
+    public void Odd_Odd_OddorEven555SideBot()
     {
-		SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
         String filename = "Make box";
         Box newBox = new Box(filename, true, 5, 5, 5, 1.0);
         try{
-            assertTrue(classTest.OddOddOdd(newBox, 4).contains("M 20.0 20.0 v -1.0 h 1.0 v -1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
+            assertTrue(classTest.Odd_Odd_OddorEven(newBox, 4).contains("M 20.0 20.0 v -1.0 h 1.0 v -1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
         }
         catch (Exception e){
             System.out.println("Failed to create box");
         }
     }
-	@Test
-    public void oddoddodd555SideTop()
+    @Test
+    public void Odd_Odd_OddorEven555SideTop()
     {
-		SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
         String filename = "Make box";
         Box newBox = new Box(filename, true, 5, 5, 5, 1.0);
         try{
-            assertTrue(classTest.OddOddOdd(newBox, 5).contains("M 35.0 20.0 v -1.0 h 1.0 v -1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
+            assertTrue(classTest.Odd_Odd_OddorEven(newBox, 5).contains("M 35.0 20.0 v -1.0 h 1.0 v -1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0"));
         }
         catch (Exception e){
             System.out.println("Failed to create box");
         }
     }
-	@Test
-    public void evenevenevenA1()
+    @Test
+    public void Even_Even_EvenorOddA1()
     {
-		SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
         String filename = "Make box";
         Box newBox = new Box(filename, false, 10, 8, 12, 1.0);
         try{
-            assertTrue(classTest.EvenEvenEven(newBox, 0).contains("M 5.0 5.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -2.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0"));
+            assertTrue(classTest.Even_Even_EvenorOdd(newBox, 0).contains("M 5.0 5.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -2.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0"));
         }
         catch (Exception e){
             System.out.println("Failed to create box");
         }
     }
-	@Test
-    public void evenevenevenA2()
+    @Test
+    public void Even_Even_EvenorOddA2()
     {
-		SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
         String filename = "Make box";
         Box newBox = new Box(filename, false, 10, 8, 12, 1.0);
         try{
-            assertTrue(classTest.EvenEvenEven(newBox, 1).contains("M 25.0 5.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -2.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0"));        
-		}
-		catch (Exception e){
+            assertTrue(classTest.Even_Even_EvenorOdd(newBox, 1).contains("M 25.0 5.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -2.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0"));        
+        }
+        catch (Exception e){
             System.out.println("Failed to create box");
         }
     }
-	@Test
-    public void evenevenevenB1()
+    @Test
+    public void Even_Even_EvenorOddB1()
     {
-		SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
         String filename = "Make box";
         Box newBox = new Box(filename, false, 10, 8, 12, 1.0);
         try{
-            assertTrue(classTest.EvenEvenEven(newBox, 2).contains("M 43.0 5.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -2.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0"));
-		}
-		catch (Exception e){
+            assertTrue(classTest.Even_Even_EvenorOdd(newBox, 2).contains("M 43.0 5.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -2.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0"));
+        }
+        catch (Exception e){
             System.out.println("Failed to create box");
         }
     }
-	@Test
-    public void evenevenevenB2()
+    @Test
+    public void Even_Even_EvenorOddB2()
     {
-		SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
         String filename = "Make box";
         Box newBox = new Box(filename, false, 10, 8, 12, 1.0);
         try{
-            assertTrue(classTest.EvenEvenEven(newBox, 3).contains("M 5.0 27.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -2.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0"));
-		}
-		catch (Exception e){
+            assertTrue(classTest.Even_Even_EvenorOdd(newBox, 3).contains("M 5.0 27.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 2.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -2.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0"));
+        }
+        catch (Exception e){
             System.out.println("Failed to create box");
         }
     }
-	@Test
-    public void evenevenevenTop()
+    @Test
+    public void Even_Even_EvenorOddTop()
     {
-		SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
         String filename = "Make box";
         Box newBox = new Box(filename, false, 10, 8, 12, 1.0);
         try{
-            assertTrue(classTest.EvenEvenEven(newBox, 4).contains("M 25.0 27.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 2.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -2.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0"));
-		}
-		catch (Exception e){
+            assertTrue(classTest.Even_Even_EvenorOdd(newBox, 4).contains("M 25.0 27.0 h 2.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 1.0 h 1.0 v -1.0 h 1.0 v 2.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -1.0 v 1.0 h 1.0 v 1.0 h -2.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -1.0 h -1.0 v 1.0 h -1.0 v -2.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0 h 1.0 v -1.0 h -1.0 v -1.0"));
+        }
+        catch (Exception e){
             System.out.println("Failed to create box");
         }
     }
