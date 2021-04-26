@@ -118,16 +118,16 @@ public class SE1BoxProject_gmm
 
         System.out.print("\nPlease enter the dimensions of the box.\n");
 
-        while((Integer.parseInt(width) < 4) || (Integer.parseInt(width) > 19))
-        {
-            System.out.print("Enter the width between (4.0-19.0)cm: ");
-            width = sc.nextLine();
-        }
-
         while((Integer.parseInt(length) < 4) || (Integer.parseInt(length) > 19))
         {
             System.out.print("Enter the length between (4.0-19.0)cm: ");
             length = sc.nextLine();
+        }
+
+        while((Integer.parseInt(width) < 4) || (Integer.parseInt(width) > 19))
+        {
+            System.out.print("Enter the width between (4.0-19.0)cm: ");
+            width = sc.nextLine();
         }
         
         while((Integer.parseInt(height) < 4) || (Integer.parseInt(height) > 21))
@@ -162,7 +162,138 @@ public class SE1BoxProject_gmm
         return path;
     }
 
-    public static String EvenEvenEven(Box B, int index)
+    public static String Even_Odd_OddorEven(Box B, int index)
+    {
+        String svg = "  <path d=\"M "; // 
+        svg += B.sides[index].xCoord + ".0 " + B.sides[index].yCoord + ".0 ";
+
+        // Even_Odd_Odd 
+        if((index == 0 || index == 1) && B.h % 2 == 1) // Sides A
+            return Even_Even_EvenorOdd(B,index);
+        if((index == 2 || index == 3) && B.h % 2 == 1) // Sides B
+            return Odd_Odd_OddorEven(B,index);
+
+        for(int i = 0; i < 4; i++)
+        {
+            String neg = "-";
+            String reverse = "";
+            String v = "v";
+            String h = "h";
+
+            if(i >= 2) {
+                neg = "";
+                reverse = "-";
+            }
+            
+            boolean addTwo = true;
+            int movement = 0, teeth = 0;
+            int length = B.sides[index].sideLength;
+
+            if(i % 2 == 1) {
+                length = B.sides[index].sideWidth;
+                v = "h"; h = "v"; 
+                addTwo = false;
+            }
+
+            if(index <= 3)
+            {
+                if((index == 0 || index == 1) && B.h % 2 == 0) // Sides A
+                    return Even_Even_EvenorOdd(B,index);
+                else
+                {                  
+                    if(i == 2) {
+                        neg = "-"; movement++;
+                        reverse = "-";
+                    }
+
+                    while(movement < length)
+                    {
+                        if(((movement+2 == length) && teeth % 2 == 0) && addTwo) {
+                            svg += h+" "+reverse+"2.0 ";
+                            movement += 2;
+                            teeth++;
+                        }
+
+                        else 
+                        {
+                            if(teeth % 2 == 0) {
+                                svg += h+" "+reverse;
+                                movement++;
+                            }
+                            else
+                                svg += v+" "+neg;
+
+                            if(teeth % 3 == 0 && teeth != 0) {
+                                teeth = 0;
+                                if(neg == "-")
+                                    svg = removal(svg);
+                                else
+                                    svg += "-";
+                            }
+
+                            else {
+                                teeth++;
+                            }
+
+                            svg += "1.0 ";
+                        }
+                    }
+                }
+            }  
+
+            else // here
+            {
+                if(i % 2 == 0)
+                    length--;
+                if(i == 1) {
+                    neg = "";
+                    reverse = "";
+                }
+                if(i == 3) {
+                    neg = "-";
+                    reverse = "-";
+                }
+
+                while(movement < length-1)
+                {
+                    if(((movement == 0) && teeth % 2 == 0) && !addTwo) {
+                        svg += h+" "+reverse+"2.0 "; 
+                        movement += 2;
+                        teeth++;
+                    }
+
+                    else 
+                    {
+                        if(teeth % 2 == 0) {
+                            svg += h+" "+reverse;
+                            movement++;
+                        }
+                        else
+                            svg += v+" "+neg;
+
+                        if(teeth % 3 == 0 && teeth != 0) {
+                            teeth = 0;
+                            if(neg == "-")
+                                svg = removal(svg);
+                            else
+                                svg += "-";
+                        }
+
+                        else {
+                            teeth++;
+                        }
+
+                        svg += "1.0 ";
+                    }
+                }
+            }
+        }
+
+        svg += "\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
+        return svg;
+    }
+
+    public static String Even_Even_EvenorOdd(Box B, int index)
     {
         String svg = "  <path d=\"M "; // 
         svg += B.sides[index].xCoord + ".0 " + B.sides[index].yCoord + ".0 ";
@@ -178,6 +309,7 @@ public class SE1BoxProject_gmm
                 neg = "";
                 reverse = "-";
             }
+
             boolean addTwo = true;
             int movement = 0, teeth = 0;
             int length = B.sides[index].sideLength;
@@ -285,7 +417,7 @@ public class SE1BoxProject_gmm
         svg += "\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
         return svg;
     }
-    public static String OddOddOdd(Box B, int index)
+    public static String Odd_Odd_OddorEven(Box B, int index)
     {
         // v -> (-)up or (+)down
         // h -> (-)left or (+)right
@@ -308,7 +440,7 @@ public class SE1BoxProject_gmm
                     reverse = "-";
                 }
 
-                if(B.h % 2 == 0)
+                if(B.h % 2 == 0 && B.l % 2 == 1 && B.w % 2 == 1) // here
                 {
                     boolean addTwo = true;
                     int length = B.sides[index].sideLength;
@@ -593,13 +725,11 @@ public class SE1BoxProject_gmm
     public static String BoxType(Box B, int index)
     {
         if(B.l % 2 == 1 && B.w % 2 == 1 && (B.h % 2 == 1 || B.h % 2 == 0)) 
-            return OddOddOdd(B,index);
+            return Odd_Odd_OddorEven(B,index);
         else if(B.l % 2 == 0 && B.w % 2 == 0 && (B.h % 2 == 0 || B.h % 2 == 1))
-            return EvenEvenEven(B,index);
-        // else if(B.l % 2 == 1 && B.w % 2 == 1 && B.h % 2 == 0)
-        //     return "OddOddEven";
-        else if(B.l % 2 == 0 && B.w % 2 == 1 && B.h % 2 == 1)
-            return "EvenOddOdd";
+            return Even_Even_EvenorOdd(B,index);
+        else if(B.l % 2 == 0 && B.w % 2 == 1 && (B.h % 2 == 1) || (B.h % 2 == 0))
+            return Even_Odd_OddorEven(B,index);
 
         return "EvenOddEven";
 
@@ -629,8 +759,10 @@ public class SE1BoxProject_gmm
                         System.out.println("New path created: " + BoxType(B,i));
                     }
 
-                    // toFile.write("\n" + BoxType(B,0));
-                    // System.out.println("New path created: " + BoxType(B,0));
+                    // toFile.write("\n" + BoxType(B,4));
+                    // System.out.println("New path created: " + BoxType(B,4));
+                    // toFile.write("\n" + BoxType(B,5));
+                    // System.out.println("New path created: " + BoxType(B,5));
                     
                     //add xml file footers
                     toFile.write("\n</g>");
