@@ -52,12 +52,12 @@ class Box //extends Side
 
         sides[0] = new Side("A",l,h,depth,5,5); // new Side("A",l,h,depth,5,5);
         sides[1] = new Side("A",l,h,depth,15+l,5);
-        sides[2] = new Side("B",w,h,depth,25+l+w,5);
+        sides[2] = new Side("B",w,h,depth,25+l+1,5);
         sides[3] = new Side("B",w,h,depth,5,15+h);
-        sides[4] = new Side("Bot",l,w,depth,15+l,15+h);
+        sides[4] = new Side("Bot",l,w,depth,15+w,15+h);
 
         if(hasTop)
-            sides[5] = new Side("Top",l,w,depth,25+l+w,15+w);
+            sides[5] = new Side("Top",l,w,depth,25+l+w,15+h);
     }
 
     public String printBox()
