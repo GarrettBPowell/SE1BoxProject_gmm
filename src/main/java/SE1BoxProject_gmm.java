@@ -156,11 +156,12 @@ public class SE1BoxProject_gmm
         svg += B.sides[index].xCoord + ".0 " + B.sides[index].yCoord + ".0 ";
 
         // Even_Odd_Odd 
-        if((index == 0 || index == 1) && B.h % 2 == 1) // Sides A
+        if((index == 0 || index == 1) && B.h % 2 == 1) // Sides A ...correct
             return Even_Even_EvenorOdd(B,index);
-        if((index == 2 || index == 3) && B.h % 2 == 1) // Sides B
+        if((index == 2 || index == 3) && B.h % 2 == 1) // Sides B ...Even_Odd_Odd works
             return Odd_Odd_OddorEven(B,index);
 
+        // Even_Odd_Even
         for(int i = 0; i < 4; i++)
         {
             String neg = "-";
@@ -223,7 +224,7 @@ public class SE1BoxProject_gmm
                                 teeth++;
                             }
 
-                            svg += reverse+B.sides[index].depth;
+                            svg += B.sides[index].depth;
                         }
                     }
                 }
@@ -271,7 +272,7 @@ public class SE1BoxProject_gmm
                             teeth++;
                         }
 
-                        svg += reverse+B.sides[index].depth;
+                        svg += B.sides[index].depth;
                     }
                 }
             }
@@ -567,7 +568,7 @@ public class SE1BoxProject_gmm
 
                     for(int i = 0; i < amount; i++) {
                         toFile.write("\n" + BoxType(B,i));
-                        // System.out.println("New path created: " + BoxType(B,i));
+                        System.out.println("New path created: " + BoxType(B,i));
                     }
 
                     // toFile.write("\n" + BoxType(B,4));
