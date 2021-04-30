@@ -105,10 +105,10 @@ public class SE1BoxProject_gmm
 			if(checkNum(width))
 			{
 				width = "" + ((int)Double.parseDouble(width));
-				if(!(Integer.parseInt(width) < 4) || (Integer.parseInt(width) > 19))
+				if(!(Integer.parseInt(width) < 4 || Integer.parseInt(width) > 19))
 					break;
 			}
-            System.out.print("Enter the width between (4.0-19.0)cm: ");
+            System.out.print("Enter a whole number for the width between (4.0-19.0)cm: ");
             width = sc.nextLine();
         }
 
@@ -117,10 +117,10 @@ public class SE1BoxProject_gmm
 			if(checkNum(length))
 			{
 				length = "" + ((int)Double.parseDouble(length));
-				if(!(Integer.parseInt(length) < 4) || (Integer.parseInt(length) > 19))
+				if(!(Integer.parseInt(length) < 4 || Integer.parseInt(length) > 19))
 					break;
 			}
-            System.out.print("Enter the length between (4.0-19.0)cm: ");
+            System.out.print("Enter a whole number for the length between (4.0-19.0)cm: ");
             length = sc.nextLine();
         }
 
@@ -130,22 +130,22 @@ public class SE1BoxProject_gmm
 			if(checkNum(height))
 			{
 				height = "" + ((int)Double.parseDouble(height));
-				if(!(Integer.parseInt(height) < 4) || (Integer.parseInt(height) > 21))
+				if(!(Integer.parseInt(height) < 4 || Integer.parseInt(height) > 21))
 					break;
 			}
-            System.out.print("Enter the height between (4.0-21.0)cm: ");
+            System.out.print("Enter a whole number for the height between (4.0-21.0)cm: ");
             height = sc.nextLine();
         }
 		
         while(true)
         {
-            System.out.print("Enter the thickness of the material between (0.5-1.05)cm: ");
 			if(checkNum(thickness))
 			{
-				if(!(Double.parseDouble(thickness) < .5) || (Double.parseDouble(thickness) > 1.5))
+				thickness = "" + (Double.parseDouble(thickness));
+				if(!(Double.parseDouble(thickness) < .5 || Double.parseDouble(thickness) > 1.5))
 					break;
 			}
-            System.out.print("Enter the thickness of the material between (0.5-1.5)cm: ");
+            System.out.print("Enter number for the thickness of the material between (0.5-1.5)cm: ");
             thickness = sc.nextLine();
         }
 
