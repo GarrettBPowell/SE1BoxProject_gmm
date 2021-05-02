@@ -19,13 +19,18 @@ Inception Deck:
 6. Show the solution.
   
 7. Ask what keeps us up at night.
+    What is a box?
+    How does scaling work for SVG files
   
 8. Size it up.
-  
+    It will take about a semester
+    8-12 weeks
+    
 9. Be clear on what’s going to give.
     Customization beyond cubes and rectangular prisims
     
 10. Show what it’s going to take.
+     A lot of bug fixing and changing layouts and design.
 
 
 Complexity: 13
