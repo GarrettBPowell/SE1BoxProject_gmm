@@ -50,14 +50,14 @@ class Box //extends Side
         h = height;
         depth = thickness;
 
-        sides[0] = new Side("A",l,h,depth,5,5); // new Side("A",l,h,depth,5,5);
-        sides[1] = new Side("A",l,h,depth,15+l,5);
-        sides[2] = new Side("B",w,h,depth,25+l+l,5);
-        sides[3] = new Side("B",w,h,depth,5,15+h);
-        sides[4] = new Side("Bot",l,w,depth,15+w,15+h);
+        sides[0] = new Side("A",l,h,depth,1,2); // new Side("A",l,h,depth,5,5);
+        sides[1] = new Side("A",l,h,depth,2+l,2);
+        sides[2] = new Side("B",w,h,depth,3+l+l,2);
+        sides[3] = new Side("B",w,h,depth,1,3+h);
+        sides[4] = new Side("Bot",l,w,depth,2+w,3+h);
 
         if(hasTop)
-            sides[5] = new Side("Top",l,w,depth,25+l+w,15+h);
+            sides[5] = new Side("Top",l,w,depth,3+l+w,3+h);
     }
 
     public String printBox()
@@ -105,10 +105,10 @@ public class SE1BoxProject_gmm
             if(checkNum(width))
             {
                 width = "" + ((int)Double.parseDouble(width));
-                if(!(Integer.parseInt(width) < 5 || Integer.parseInt(width) > 19))
+                if(!(Integer.parseInt(width) < 5 || Integer.parseInt(width) > 17))
                     break;
             }
-            System.out.print("Enter a whole number for the width between (5.0-19.0)cm: ");
+            System.out.print("Enter a whole number for the width between (5.0-17.0)cm: ");
             width = sc.nextLine();
         }
 
@@ -117,10 +117,10 @@ public class SE1BoxProject_gmm
             if(checkNum(length))
             {
                 length = "" + ((int)Double.parseDouble(length));
-                if(!(Integer.parseInt(length) < 5 || Integer.parseInt(length) > 19))
+                if(!(Integer.parseInt(length) < 5 || Integer.parseInt(length) > 17))
                     break;
             }
-            System.out.print("Enter a whole number for the length between (5.0-19.0)cm: ");
+            System.out.print("Enter a whole number for the length between (5.0-17.0)cm: ");
             length = sc.nextLine();
         }
 
@@ -130,10 +130,10 @@ public class SE1BoxProject_gmm
             if(checkNum(height))
             {
                 height = "" + ((int)Double.parseDouble(height));
-                if(!(Integer.parseInt(height) < 5 || Integer.parseInt(height) > 21))
+                if(!(Integer.parseInt(height) < 5 || Integer.parseInt(height) > 19))
                     break;
             }
-            System.out.print("Enter a whole number for the height between (5.0-21.0)cm: ");
+            System.out.print("Enter a whole number for the height between (5.0-19.0)cm: ");
             height = sc.nextLine();
         }
         
@@ -319,7 +319,7 @@ public class SE1BoxProject_gmm
             }
         }
 
-        svg += "\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
+        svg += "\" stroke=\"rgb(255,255,255)\" stroke-width=\"0.001\" />";
         return svg;
     }
 
@@ -444,7 +444,7 @@ public class SE1BoxProject_gmm
             }
         }
 
-        svg += "\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
+        svg += "\" stroke=\"rgb(255,255,255)\" stroke-width=\"0.001\" />";
         return svg;
     }
     public static String Odd_Odd_OddorEven(Box B, int index)
@@ -580,7 +580,7 @@ public class SE1BoxProject_gmm
             }
         }
 
-        svg += "\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
+        svg += "\" stroke=\"rgb(255,255,255)\" stroke-width=\"0.001\" />";
         return svg;
     }
 
@@ -638,7 +638,7 @@ public class SE1BoxProject_gmm
                 System.out.print("\nEnter a different SVG Filename: ");
                 Scanner sc = new Scanner(System.in);
                 fileName = sc.nextLine();
-                createFile(fileName);
+                testBoxClass(B);
                 return false;
             }
         } 
@@ -656,7 +656,7 @@ public class SE1BoxProject_gmm
         // v -> (+)up or (-)down
         // h -> (-)left or (+)right
         // width and height
-        String example = "<path d=\"M 35.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
+        String example = "<path d=\"M 35.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,255,255)\" stroke-width=\"0.001\" />";
         String svg = "  <path d=\"M "; // "" 35.0 35.0 "; // v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
         svg += xCoordinate + ".0 " + yCoordinate + ".0";
 
@@ -740,7 +740,7 @@ public class SE1BoxProject_gmm
         }
         
         //add end of path specifications
-        svg += "\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
+        svg += "\" stroke=\"rgb(255,255,255)\" stroke-width=\"0.001\" />";
         
         return svg;
     }
@@ -797,7 +797,7 @@ public class SE1BoxProject_gmm
         // v -> (+)up or (-)down
         // h -> (-)left or (+)right
         // width and height
-        String example = "<path d=\"M 35.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
+        String example = "<path d=\"M 35.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,255,255)\" stroke-width=\"0.001\" />";
         String svg = "  <path d=\"M 35.0 35.0 "; // v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
 
         int w = Integer.parseInt(width);
@@ -880,7 +880,7 @@ public class SE1BoxProject_gmm
         }
         
         //add end of path specifications
-        svg += "\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
+        svg += "\" stroke=\"rgb(255,255,255)\" stroke-width=\"0.001\" />";
         
         return svg;
     }
