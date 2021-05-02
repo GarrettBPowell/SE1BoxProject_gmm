@@ -73,5 +73,4 @@ B	Top	Bottom
 
 The pairs of sides should be placed opposite each other in the box, with the top and bottom oriented correctly.
 The teeth fit together in a way that their ends should be flush with the surface of the box.
-Normally, the sides facing up when they are cut will be the insides of the box.
-In the case that a letter is engraved, the side it is engraved on will be reversed and will be the outside face.
+The sides facing up are the outward facing sides of the box.
