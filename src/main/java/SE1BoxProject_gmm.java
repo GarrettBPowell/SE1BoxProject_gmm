@@ -92,7 +92,7 @@ class Box //extends Side
             else
             {
                 letterX = ((3 + ((double)w + (double)l + ((double)l / 2))));
-                letterY = (((double)l * 13/20) + (double)h + 2);
+                letterY = (((double)w * 13/20) + (double)h + 2);
             }
         }
     }
@@ -223,10 +223,10 @@ public class SE1BoxProject_gmm
             if(checkNum(thickness))
             {
                 thickness = "" + (Double.parseDouble(thickness));
-                if(!(Double.parseDouble(thickness) < .5 || Double.parseDouble(thickness) > 1.5))
+                if(!(Double.parseDouble(thickness) < .1 || Double.parseDouble(thickness) > 1.0))
                     break;
             }
-            System.out.print("Enter number for the thickness of the material between (0.5-1.5)cm: ");
+            System.out.print("Enter number for the thickness of the material between (0.1-1.0)cm: ");
             thickness = sc.nextLine();
         }
 
