@@ -65,14 +65,14 @@ class Box //extends Side
         this.letter = letter;
         letterSide = side;
 
-        sides[0] = new Side("A",l,h,depth,1,2); // new Side("A",l,h,depth,5,5);
-        sides[1] = new Side("A",l,h,depth,2+l,2);
-        sides[2] = new Side("B",w,h,depth,3+l+l,2);
-        sides[3] = new Side("B",w,h,depth,1,3+h);
-        sides[4] = new Side("Bot",l,w,depth,3+w,3+h);
+        sides[0] = new Side("A",l,h,depth,1,1); // new Side("A",l,h,depth,5,5);
+        sides[1] = new Side("A",l,h,depth,2+l,1);
+        sides[2] = new Side("B",w,h,depth,3+l+l,1);
+        sides[3] = new Side("B",w,h,depth,1,2+h);
+        sides[4] = new Side("Bot",l,w,depth,2+w,2+h);
 
         if(hasTop)
-            sides[5] = new Side("Top",l,w,depth,4+l+w,3+h);
+            sides[5] = new Side("Top",l,w,depth,3+l+w,2+h);
 
         if(letter != "NULL")
         {
@@ -81,18 +81,18 @@ class Box //extends Side
 
             if(letterLocation == 0)
             {
-                letterX = ((double)l / 2) + 1;
-                letterY = ((double)h * 13/20) + 1;
+                letterX = (((double)l / 2) + 1) - depth;
+                letterY = ((double)h * 14/20) + 1;
             }
             else if(letterLocation == 2)
             {
-                letterX = ((double)l * 2 + 3 + ((double)w /2));
-                letterY = ((double)h * 13/20) + 1;
+                letterX = ((double)l * 2 + 3 + ((double)w /2)) - depth;
+                letterY = ((double)h * 14/20) + 1;
             }
             else
             {
-                letterX = ((3 + ((double)w + (double)l + ((double)l / 2))));
-                letterY = (((double)w * 13/20) + (double)h + 2);
+                letterX = ((3 + ((double)w + (double)l + ((double)l / 2)))) - depth;
+                letterY = (((double)w * 14/20) + (double)h + 2);
             }
         }
     }
@@ -694,7 +694,7 @@ public class SE1BoxProject_gmm
                     boolean down = false;
 
                     if((movement == 0 || movement+2 == length) && teeth % 2 == 0) {
-                        svg += h+reverse+"2.0 ";//B.sides[index].depth*2; 
+                        svg += h+reverse+(2-B.sides[index].depth);//B.sides[index].depth*2; 
                         movement += 2;
                         teeth++;
                     }
@@ -756,7 +756,7 @@ public class SE1BoxProject_gmm
                     BufferedWriter toFile = new BufferedWriter(new FileWriter(newFile));
                     toFile.write("<?xml version=\"1.0\" encoding=\"us-ascii\"?>");
                     toFile.write("\n<svg height=\"81.90cm\" viewBox=\"0.0 0.0 120.10 81.90\" width=\"120.10cm\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:cc=\"http://creativecommons.org/ns#\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:svg=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">");
-                    toFile.write("\n<style type=\"text/css\">\n.st0{fill:none;stroke:#FFFFFF;stroke-width:0.001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;}\n.st1{font-family:\"PerpetuaTitlingMT-Light\";}\n.st2{font-size:" + B.letterSizes[B.letterSize] + "px;}\n</style>");
+                    toFile.write("\n<style type=\"text/css\">\n.st0{fill:none;stroke:#000000;stroke-width:0.001cm;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;}\n.st1{font-family:\"PerpetuaTitlingMT-Light\";}\n.st2{font-size:" + B.letterSizes[B.letterSize] + "px;}\n</style>");
                     toFile.write("\n<g id=\"dovetail\">");
 
                     int amount = 5;
@@ -805,7 +805,7 @@ public class SE1BoxProject_gmm
         // v -> (+)up or (-)down
         // h -> (-)left or (+)right
         // width and height
-        String example = "<path d=\"M 35.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,255,255)\" stroke-width=\"0.001\" />";
+        String example = "<path d=\"M 35.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(0,0,0)\" stroke-width=\"0.001\" />";
         String svg = "  <path class=\"st0\" d=\"M "; // "" 35.0 35.0 "; // v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
         svg += xCoordinate + ".0 " + yCoordinate + ".0";
 
@@ -942,7 +942,7 @@ public class SE1BoxProject_gmm
         // v -> (+)up or (-)down
         // h -> (-)left or (+)right
         // width and height
-        String example = "<path d=\"M 35.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,255,255)\" stroke-width=\"0.001\" />";
+        String example = "<path d=\"M 35.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(0,0,0)\" stroke-width=\"0.001\" />";
         String svg = "  <path class=\"st0\" d=\"M 35.0 35.0 "; // v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
 
         int w = Integer.parseInt(width);
