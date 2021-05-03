@@ -7,6 +7,9 @@
 import java.io.File; 
 import java.io.IOException;
 import java.util.*;
+
+import javax.lang.model.util.ElementScanner14;
+
 import java.io.*;
 
 class Side
@@ -15,6 +18,9 @@ class Side
     public int sideLength, sideWidth;
     public double depth;
     public int xCoord, yCoord;
+    public boolean hasLetter;
+    public int letter;
+    public int letterSize;
 
     public Side(String letter, int length, int width, double deep, int x, int y)
     {
@@ -40,8 +46,17 @@ class Box //extends Side
     public Side[] sides = new Side[6];
     public double depth;
     public String fileName;
+    public String letter = "NULL";
+    public String letterSide;
+    public int letterLocation;
+    public int letterSize;
 
-    public Box(String name, boolean top, int length, int width, int height, double thickness)
+    public String ending = ")\"/>";
+    public String[] letters = new String[26];
+    public int[] letterSizes = {2,4,8,12};
+    public double letterX, letterY;
+
+    public Box(String name, boolean top, int length, int width, int height, double thickness, String side, String letter)
     {
         fileName = name;
         hasTop = top;
@@ -49,15 +64,39 @@ class Box //extends Side
         w = width;
         h = height;
         depth = thickness;
+        this.letter = letter;
+        letterSide = side;
 
         sides[0] = new Side("A",l,h,depth,1,2); // new Side("A",l,h,depth,5,5);
         sides[1] = new Side("A",l,h,depth,2+l,2);
         sides[2] = new Side("B",w,h,depth,3+l+l,2);
         sides[3] = new Side("B",w,h,depth,1,3+h);
-        sides[4] = new Side("Bot",l,w,depth,2+w,3+h);
+        sides[4] = new Side("Bot",l,w,depth,3+w,3+h);
 
         if(hasTop)
-            sides[5] = new Side("Top",l,w,depth,3+l+w,3+h);
+            sides[5] = new Side("Top",l,w,depth,4+l+w,3+h);
+
+        if(letter != "NULL")
+        {
+            letterLocation = locateLetter(letterSide);
+            letterSize = sizeLetter(letterLocation);
+
+            if(letterLocation == 0)
+            {
+                letterX = ((double)l / 2) + 1;
+                letterY = ((double)h * 13/20) + 1;
+            }
+            else if(letterLocation == 2)
+            {
+                letterX = ((double)l * 2 + 3 + ((double)w /2));
+                letterY = ((double)h * 13/20) + 1;
+            }
+            else
+            {
+                letterX = ((3 + ((double)w + (double)l + ((double)l / 2))));
+                letterY = (((double)l * 13/20) + (double)h + 2);
+            }
+        }
     }
 
     public String printBox()
@@ -78,6 +117,46 @@ class Box //extends Side
             return boxreturn;
         }
     }
+
+    public int locateLetter(String location)
+    {
+        if(location.equals("TOP"))
+            return 5;
+        else if(location.equals("SIDE"))
+        {
+            if((Math.abs(sides[0].sideLength - sides[0].sideWidth)) <= (Math.abs(sides[2].sideLength - sides[2].sideWidth)))
+                return 0;
+            else
+                return 2;
+        }
+        else
+            return -1;
+    }
+
+    public int sizeLetter(int location)
+    {
+        double lowSide;
+
+        if(sides[location].sideLength > sides[location].sideWidth)
+        {
+            lowSide = sides[location].sideWidth - (depth * 2);
+        }
+        else
+        {
+            lowSide = sides[location].sideLength - (depth * 2);
+        }
+
+        if(lowSide >= 12)
+            return 3;
+        else if(lowSide >= 8)
+            return 2;
+        else if(lowSide >= 4)
+            return 1;
+        else if(lowSide >= 2)
+            return 0;
+        else
+            return -1;
+    }
 }
 
 public class SE1BoxProject_gmm
@@ -89,6 +168,10 @@ public class SE1BoxProject_gmm
     public static String fileName = "empty";
     public static String topBox = "NULL"; // here
     public static boolean top = false;
+    public static boolean hasLetter = false;
+    public static String letter = "NULL";
+    public static String letterLocation = "NULL";
+    public static String response = "NULL";
 
     public static void main( String[] args )
     {
@@ -155,10 +238,47 @@ public class SE1BoxProject_gmm
             topBox = sc.nextLine();
         }
 
+        while(true)
+        {
+            System.out.print("Do you want to have a monogrammed letter on your box? (Y/N) ");
+            response = sc.nextLine();
+            if(response.equals("Y"))
+            {
+                hasLetter = true;
+                break;
+            }
+            else if(response.equals("N"))
+            {
+                hasLetter = false;
+                break;
+            }
+        }
+
+        if(hasLetter)
+        {
+            while(!(letterLocation.equals("TOP") && topBox.equals("Y")) && !(letterLocation.equals("SIDE")))
+            {
+                System.out.println("Where do you want the letter to be placed on the box? (TOP/SIDE)");
+                System.out.print("(Please only select \"TOP\" if your box has a top.) ");
+                letterLocation = sc.nextLine();
+            }
+
+            while(true)
+            {
+                System.out.print("What letter do you want on your box? ");
+                letter = sc.nextLine();
+                if(letter.length() == 1)
+                    if(Character.isLetter(letter.toCharArray()[0]))
+                    {
+                        break;   
+                    }
+            }
+        }
+
         if(topBox.equals("Y"))
             top = true;
-
-        Box newBox = new Box(fileName,top,Integer.parseInt(length),Integer.parseInt(width),Integer.parseInt(height),Double.parseDouble(thickness));
+        
+        Box newBox = new Box(fileName,top,Integer.parseInt(length),Integer.parseInt(width),Integer.parseInt(height),Double.parseDouble(thickness),letterLocation,letter);
         testBoxClass(newBox);
         //createFile(fileName);
     }
@@ -187,13 +307,13 @@ public class SE1BoxProject_gmm
 
     public static String Odd_Even_EvenorOdd(Box B, int index)
     {
-        Box newBox = new Box(B.fileName,B.hasTop,B.w,B.l,B.h,B.depth);
+        Box newBox = new Box(B.fileName,B.hasTop,B.w,B.l,B.h,B.depth,B.letterSide,B.letter);
         return Even_Odd_OddorEven(newBox,index);
     }
 
     public static String Even_Odd_OddorEven(Box B, int index)
     {
-        String svg = "  <path d=\"M "; // 
+        String svg = "  <path class=\"st0\" d=\"M "; // 
         svg += B.sides[index].xCoord + ".0 " + B.sides[index].yCoord + ".0 ";
 
         // Even_Odd_Odd 
@@ -318,14 +438,13 @@ public class SE1BoxProject_gmm
                 }
             }
         }
-
-        svg += "\" stroke=\"rgb(255,255,255)\" stroke-width=\"0.001\" />";
+        svg += "\"/>";
         return svg;
     }
 
     public static String Even_Even_EvenorOdd(Box B, int index)
     {
-        String svg = "  <path d=\"M "; // 
+        String svg = "  <path class=\"st0\" d=\"M "; // 
         svg += B.sides[index].xCoord + ".0 " + B.sides[index].yCoord + ".0 ";
 
         for(int i = 0; i < 4; i++)
@@ -359,7 +478,7 @@ public class SE1BoxProject_gmm
                 
                 if(B.h % 2 == 1 && i == 2) {
                     neg = "-";
-                    reverse = "-";
+                    reverse = "-"; 
                 }
 
                 while(movement < length)
@@ -443,8 +562,7 @@ public class SE1BoxProject_gmm
                 }
             }
         }
-
-        svg += "\" stroke=\"rgb(255,255,255)\" stroke-width=\"0.001\" />";
+        svg += "\"/>";
         return svg;
     }
     public static String Odd_Odd_OddorEven(Box B, int index)
@@ -452,7 +570,7 @@ public class SE1BoxProject_gmm
         // v -> (-)up or (+)down
         // h -> (-)left or (+)right
         // width and height
-        String svg = "  <path d=\"M "; // "" 35.0 35.0 "; // v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
+        String svg = "  <path class=\"st0\" d=\"M "; // "" 35.0 35.0 "; // v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
         svg += B.sides[index].xCoord + ".0 " + B.sides[index].yCoord + ".0 ";
 
         for(int i = 0; i < 4; i++)
@@ -579,8 +697,7 @@ public class SE1BoxProject_gmm
                 }
             }
         }
-
-        svg += "\" stroke=\"rgb(255,255,255)\" stroke-width=\"0.001\" />";
+        svg += "\"/>";
         return svg;
     }
 
@@ -607,9 +724,10 @@ public class SE1BoxProject_gmm
 
                     //create new file writer and add xml header
                     BufferedWriter toFile = new BufferedWriter(new FileWriter(newFile));
-                    toFile.write("<?xml version='1.0' encoding='us-ascii'?>");
+                    toFile.write("<?xml version=\"1.0\" encoding=\"us-ascii\"?>");
                     toFile.write("\n<svg height=\"81.90cm\" viewBox=\"0.0 0.0 120.10 81.90\" width=\"120.10cm\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:cc=\"http://creativecommons.org/ns#\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:svg=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">");
-                    toFile.write("\n<g id=\"dovetail\" style=\"fill:none;stroke-linecap:round;stroke-linejoin:round;\">");
+                    toFile.write("\n<style type=\"text/css\">\n.st0{fill:none;stroke:#FFFFFF;stroke-width:0.001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;}\n.st1{font-family:\"PerpetuaTitlingMT-Light\";}\n.st2{font-size:" + B.letterSizes[B.letterSize] + "px;}\n</style>");
+                    toFile.write("\n<g id=\"dovetail\">");
 
                     int amount = 5;
                     if(B.hasTop)
@@ -627,6 +745,7 @@ public class SE1BoxProject_gmm
                     
                     //add xml file footers
                     toFile.write("\n</g>");
+                    toFile.write("\n<text transform=\"matrix(1 0 0 1 " + B.letterX + "cm " + B.letterY + "cm)\" class=\"st1 st2\" alignment-baseline=\"center\" text-anchor=\"middle\" x=\"0\" y=\"0\">" + B.letter + "</text>");
                     toFile.write("\n</svg>");
                     toFile.close();
                     
@@ -657,7 +776,7 @@ public class SE1BoxProject_gmm
         // h -> (-)left or (+)right
         // width and height
         String example = "<path d=\"M 35.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,255,255)\" stroke-width=\"0.001\" />";
-        String svg = "  <path d=\"M "; // "" 35.0 35.0 "; // v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
+        String svg = "  <path class=\"st0\" d=\"M "; // "" 35.0 35.0 "; // v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
         svg += xCoordinate + ".0 " + yCoordinate + ".0";
 
         int w = Integer.parseInt(width);
@@ -738,10 +857,6 @@ public class SE1BoxProject_gmm
                 }
             }
         }
-        
-        //add end of path specifications
-        svg += "\" stroke=\"rgb(255,255,255)\" stroke-width=\"0.001\" />";
-        
         return svg;
     }
 
@@ -758,7 +873,7 @@ public class SE1BoxProject_gmm
 
                     //create new file writer and add xml header
                     BufferedWriter toFile = new BufferedWriter(new FileWriter(newFile));
-                    toFile.write("<?xml version='1.0' encoding='us-ascii'?>");
+                    toFile.write("<?xml version=\"1.0\" encoding=\"us-ascii\"?>");
                     toFile.write("\n<svg height=\"81.90mm\" viewBox=\"0.0 0.0 120.10 81.90\" width=\"120.10mm\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:cc=\"http://creativecommons.org/ns#\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:svg=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">");
                     toFile.write("\n<g id=\"dovetail\" style=\"fill:none;stroke-linecap:round;stroke-linejoin:round;\">");
 
@@ -798,7 +913,7 @@ public class SE1BoxProject_gmm
         // h -> (-)left or (+)right
         // width and height
         String example = "<path d=\"M 35.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,255,255)\" stroke-width=\"0.001\" />";
-        String svg = "  <path d=\"M 35.0 35.0 "; // v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
+        String svg = "  <path class=\"st0\" d=\"M 35.0 35.0 "; // v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
 
         int w = Integer.parseInt(width);
         int l = Integer.parseInt(length);
@@ -878,10 +993,6 @@ public class SE1BoxProject_gmm
                 }
             }
         }
-        
-        //add end of path specifications
-        svg += "\" stroke=\"rgb(255,255,255)\" stroke-width=\"0.001\" />";
-        
         return svg;
     }
 }
