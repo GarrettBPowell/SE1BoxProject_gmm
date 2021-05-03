@@ -349,14 +349,31 @@ public class SE1BoxProject_gmm
                 else
                 {                  
                     if(i == 2) {
-                        neg = "-"; movement++;
+                        neg = "-"; //movement++;
                         reverse = "-";
+                    }
+                    if(i == 0) {
+                        neg = "";
+                        reverse = "";
+                    }
+
+                    int jump = 0;
+                    int beg = length-2;
+
+                    if( i == 0) {
+                        jump = length-2;
+                        beg = 0;
                     }
 
                     while(movement < length)
                     {
-                        if(((movement+2 == length) && teeth % 2 == 0) && addTwo) {
-                            svg += h+" "+reverse+B.sides[index].depth*2;
+                        if(((movement == length-2) && teeth % 2 == 0) && addTwo) {
+                            svg += h+" "+reverse+"2.0 ";
+                            movement += 2;
+                            teeth++;
+                        }
+                        else if(((movement == 0) && teeth % 2 == 0) && addTwo) {
+                            svg += h+" "+reverse+(2-B.sides[index].depth);
                             movement += 2;
                             teeth++;
                         }
