@@ -655,7 +655,7 @@ public class SE1BoxProject_gmm
         // v -> (-)up or (+)down
         // h -> (-)left or (+)right
         // width and height
-        String svg = "  <path class=\"st0\" d=\"M "; // "" 35.0 35.0 "; // v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
+        String svg = "  <path class=\"st0\" d=\"M "; 
         svg += B.sides[index].xCoord + ".0 " + B.sides[index].yCoord + ".0 ";
 
         for(int i = 0; i < 4; i++)
@@ -775,7 +775,6 @@ public class SE1BoxProject_gmm
                     reverse = "-";
                 }
 
-                //movement++;
                 while(movement < length)
                 {
                     boolean down = false;
@@ -852,15 +851,9 @@ public class SE1BoxProject_gmm
 
                     for(int i = 0; i < amount; i++) {
                         toFile.write("\n" + BoxType(B,i));
-                        System.out.println("New path created: " + BoxType(B,i));
+                        //System.out.println("New path created: " + BoxType(B,i));
                     }
 
-                    // toFile.write("\n" + BoxType(B,4));
-                    // System.out.println("New path created: " + BoxType(B,4));
-                    // toFile.write("\n" + BoxType(B,5));
-                    // System.out.println("New path created: " + BoxType(B,5));
-                    
-                    //add xml file footers
                     toFile.write("\n</g>");
                     toFile.write("\n<text transform=\"matrix(1 0 0 1 " + B.letterX + "cm " + B.letterY + "cm)\" class=\"st1 st2\" alignment-baseline=\"center\" text-anchor=\"middle\" x=\"0\" y=\"0\">" + B.letter + "</text>");
                     toFile.write("\n</svg>");
@@ -884,233 +877,6 @@ public class SE1BoxProject_gmm
           e.printStackTrace();
         }
         return false;
-    }
-
-
-    public static String sixSides(int xCoordinate, int yCoordinate)
-    {
-        // v -> (+)up or (-)down
-        // h -> (-)left or (+)right
-        // width and height
-        String example = "<path d=\"M 35.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(0,0,0)\" stroke-width=\"0.001\" />";
-        String svg = "  <path class=\"st0\" d=\"M "; // "" 35.0 35.0 "; // v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
-        svg += xCoordinate + ".0 " + yCoordinate + ".0";
-
-        int w = Integer.parseInt(width);
-        int l = Integer.parseInt(length);
-        int h = Integer.parseInt(height);
-
-        int base[] = {w,l,w,l};
-        int shortWalls[] = {h,w,h,w};
-        int longWalls[] = {h,l,h,l};
-
-        for(int i = 0; i < 4; i++)
-        {
-            String negative = "-";
-            String empty = "";
-
-            if(i >= 2) { // alternate walls to form square
-                negative = "";
-                empty = "-";
-            }
-
-            if(i % 2 == 0) 
-            {
-                int j = 0, count = 0;
-                while(j < base[i])
-                {
-                    if(count % 2 == 0) {
-                        svg += "v ";
-                        j++;
-                    }
-                    else
-                        svg += "h ";
-
-                    if(!(count % 3 == 0) || count == 0)
-                            svg += negative; // "-"
-                    else {
-                        count = -1;
-                        svg += empty;
-                    }
-
-                    svg += "1.0 ";
-                    count++;
-                }
-            }
-
-            else
-            {
-                int j = 0, count = 0;
-                while(j < base[i])
-                {
-                    boolean add = false;
-                    if(count % 2 == 0) {
-                        svg += "h ";
-                        add = true;
-                    }
-                    else
-                        svg += "v ";
-
-                    if(add && (j == 0 || (j+2) == base[i])) {
-                        svg += negative + "2.0 "; // "-"
-                        j += 2;
-                        count += 2;
-                    }
-                    else 
-                    {
-                        if(!(count % 3 == 0) || count == 0)
-                            svg += negative;
-                        else {
-                            count = -1;
-                            svg += empty;
-                        }
-
-                        svg += "1.0 ";
-                        if(add)
-                            j++;
-                    }
-
-                    count++;
-                }
-            }
-        }
-        return svg;
-    }
-
-
-    // here stop
-    public static boolean createFile(String fileName)
-    {
-        try 
-        {
-            File newFile = new File(fileName + ".svg");
-            
-            if (newFile.createNewFile()) {
-                System.out.println("File created: " + newFile.getName() + " in project folder");
-
-                    //create new file writer and add xml header
-                    BufferedWriter toFile = new BufferedWriter(new FileWriter(newFile));
-                    toFile.write("<?xml version=\"1.0\" encoding=\"us-ascii\"?>");
-                    toFile.write("\n<svg height=\"81.90mm\" viewBox=\"0.0 0.0 120.10 81.90\" width=\"120.10mm\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:cc=\"http://creativecommons.org/ns#\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:svg=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">");
-                    toFile.write("\n<g id=\"dovetail\" style=\"fill:none;stroke-linecap:round;stroke-linejoin:round;\">");
-
-                    //create first side of box
-                    String newPath = pathCreation(length, width, height);
-                    System.out.println("New path created as: " + newPath); // here
-                    toFile.write("\n"+newPath);
-                    
-                    //add xml file footers
-                    toFile.write("\n</g>");
-                    toFile.write("\n</svg>");
-                    toFile.close();
-                    
-                return true;
-            }
-            else 
-            {
-                System.out.println("Failed to create file, file may already exist, please delete file, or move file");
-                System.out.print("\nEnter a different SVG Filename: ");
-                Scanner sc = new Scanner(System.in);
-                fileName = sc.nextLine();
-                createFile(fileName);
-                return false;
-            }
-        } 
-        catch (IOException e) 
-        {
-          System.out.println("An error occurred.");
-          e.printStackTrace();
-        }
-        return false;
-    }
-
-    public static String pathCreation(String length, String width, String height)
-    {
-        // v -> (+)up or (-)down
-        // h -> (-)left or (+)right
-        // width and height
-        String example = "<path d=\"M 35.0 35.0 v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(0,0,0)\" stroke-width=\"0.001\" />";
-        String svg = "  <path class=\"st0\" d=\"M 35.0 35.0 "; // v -9.0 h -9.0 v 9.0 h 9.0\" stroke=\"rgb(255,0,0)\" stroke-width=\"0.20\" />";
-
-        int w = Integer.parseInt(width);
-        int l = Integer.parseInt(length);
-        int h = Integer.parseInt(height);
-
-        int base[] = {w,l,w,l};
-        int shortWalls[] = {h,w,h,w};
-        int longWalls[] = {h,l,h,l};
-
-        for(int i = 0; i < 4; i++)
-        {
-            String negative = "-";
-            String empty = "";
-
-            if(i >= 2) { // alternate walls to form square
-                negative = "";
-                empty = "-";
-            }
-
-            if(i % 2 == 0) 
-            {
-                int j = 0, count = 0;
-                while(j < base[i])
-                {
-                    if(count % 2 == 0) {
-                        svg += "v ";
-                        j++;
-                    }
-                    else
-                        svg += "h ";
-
-                    if(!(count % 3 == 0) || count == 0)
-                            svg += negative; // "-"
-                    else {
-                        count = -1;
-                        svg += empty;
-                    }
-
-                    svg += "1.0 ";
-                    count++;
-                }
-            }
-
-            else
-            {
-                int j = 0, count = 0;
-                while(j < base[i])
-                {
-                    boolean add = false;
-                    if(count % 2 == 0) {
-                        svg += "h ";
-                        add = true;
-                    }
-                    else
-                        svg += "v ";
-
-                    if(add && (j == 0 || (j+2) == base[i])) {
-                        svg += negative + "2.0 "; // "-"
-                        j += 2;
-                        count += 2;
-                    }
-                    else 
-                    {
-                        if(!(count % 3 == 0) || count == 0)
-                            svg += negative;
-                        else {
-                            count = -1;
-                            svg += empty;
-                        }
-
-                        svg += "1.0 ";
-                        if(add)
-                            j++;
-                    }
-
-                    count++;
-                }
-            }
-        }
-        return svg;
     }
 }
 
