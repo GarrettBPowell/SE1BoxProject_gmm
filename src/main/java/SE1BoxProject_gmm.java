@@ -600,34 +600,57 @@ public class SE1BoxProject_gmm
                 if(B.l % 2 == 1 && B.w % 2 == 1 && B.h % 2 == 0)
                     skip = true; // here Odd_Odd_Even
 
+                if(i == 0) {
+                    neg = "";
+                    reverse = "";
+                }
+
+                if(i == 1) {
+                    neg = "-";
+                    reverse = "";
+                }
+
                 if(i == 2) {
                     neg = "-";
                     reverse = "-";
                 }
 
-                if(i == 3)
-                    movement++;
+                if(i == 3) {
+                    reverse = "-";
+                    neg = "-";
+                }
+                
 
                 int jump = 0;
-                if( i == 0) 
+                int beg = length-2;
+
+                if( i == 0) {
                     jump = length-2;
+                    beg = 0;
+                }
 
                 while(movement < length)
                 {
                     if(((movement == jump) && teeth % 2 == 0) && addTwo) {
-                        svg += h+" "+reverse+B.sides[index].depth*2; 
+                        svg += h+reverse+"2.0 ";//B.sides[index].depth*2; 
                         movement += 2;
                         teeth++;
                     }
 
-                    else if((((movement == (length/2)-1) && teeth % 2 == 0) && !addTwo) && skip) {
-                        svg += h+" "+reverse+B.sides[index].depth*2;
+                    else if(((movement == beg) && teeth % 2 == 0) && addTwo) {
+                        svg += h+" "+reverse+(2-B.sides[index].depth); 
+                        movement += 2;
+                        teeth++;
+                    }
+
+                    else if((((movement == (length/2)-1) && teeth % 2 == 0) && !addTwo) && skip) { // Odd_Odd_Even
+                        svg += h+reverse+"2.0";
                         movement+= 2; teeth++;
                     }
 
                     else 
                     {
-						boolean down = false;
+                        boolean down = false;
                         if(teeth % 2 == 0) {
                             svg += h+" "+reverse;
                             movement++;
@@ -647,10 +670,10 @@ public class SE1BoxProject_gmm
                             teeth++;
                         }
 
-						if(teeth == 2 || down)
-							svg += B.sides[index].depth;
-						else
-							svg += "1.0";
+                        if(teeth == 2 || down)
+                            svg += B.sides[index].depth;
+                        else
+                            svg += "1.0";
                     }
                 }
             }
@@ -668,30 +691,30 @@ public class SE1BoxProject_gmm
                 movement++;
                 while(movement < length-1)
                 {
-					boolean down = false;
-					if(teeth % 2 == 0) {
-						svg += h+" "+reverse;
-						movement++;
-					}
-					else
-						svg += v+" "+neg;
+                    boolean down = false;
+                    if(teeth % 2 == 0) {
+                        svg += h+" "+reverse;
+                        movement++;
+                    }
+                    else
+                        svg += v+" "+neg;
 
-					if(teeth % 3 == 0 && teeth != 0) {
-						teeth = 0; down = true;
-						if(neg == "-")
-							svg = removal(svg);
-						else
-							svg += "-";
-					}
+                    if(teeth % 3 == 0 && teeth != 0) {
+                        teeth = 0; down = true;
+                        if(neg == "-")
+                            svg = removal(svg);
+                        else
+                            svg += "-";
+                    }
 
-					else {
-						teeth++;
-					}
+                    else {
+                        teeth++;
+                    }
 
-					if(teeth == 2 || down)
-						svg += B.sides[index].depth;
-					else
-						svg += "1.0";
+                    if(teeth == 2 || down)
+                        svg += B.sides[index].depth;
+                    else
+                        svg += "1.0";
                 }
             }
         }
