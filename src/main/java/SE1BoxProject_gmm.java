@@ -479,9 +479,6 @@ public class SE1BoxProject_gmm
 
         for(int i = 0; i < 4; i++)
         {
-            // if(i == 4)
-            //     break;
-
             String neg = "-";
             String reverse = "";
             String v = "v";
@@ -545,12 +542,17 @@ public class SE1BoxProject_gmm
                     }
 
                     else if(((movement+1 == length) && teeth % 2 == 0) && !addTwo && pass) {
-                        svg += h+reverse+B.sides[index].depth;
+                        svg += h+reverse+(1-B.sides[index].depth);//B.sides[index].depth;
                         movement++;
                         teeth++;
                     }
 
                     //Even_Even_Odd
+                    else if(( i == 3 && teeth % 2 == 0) && (movement == 0 || movement+1 == length) && !addTwo && !pass) {
+                        svg += h+reverse+(1-B.sides[index].depth);
+                        movement++;
+                        teeth++;
+                    }                 
                     else if(((movement == beg) && teeth % 2 == 0) && addTwo && !pass) {
                         svg += h+reverse+(2-B.sides[index].depth);
                         movement += 2;
@@ -559,11 +561,6 @@ public class SE1BoxProject_gmm
                     else if(((movement == jump) && teeth % 2 == 0) && addTwo && !pass) {
                         svg += h+reverse+"2.0 ";
                         movement += 2;
-                        teeth++;
-                    }
-                    else if((B.h % 2 == 1) && (i == 3) && (movement == 0 || movement+1 == length) && teeth % 2 == 0) {
-                        svg += h+reverse+(1-B.sides[index].depth);
-                        movement++;
                         teeth++;
                     }
 
