@@ -529,7 +529,7 @@ public class SE1BoxProject_gmm
                 while(movement < length)
                 {
                     if(movement == 0) {
-                        svg += h+" "+reverse+B.sides[index].depth*2;//"2.0 "; 
+                        svg += h+reverse+B.sides[index].depth*2;//"2.0 "; 
                         movement += 2;
                         teeth++;
                     }
@@ -688,33 +688,42 @@ public class SE1BoxProject_gmm
                     reverse = "-";
                 }
 
-                movement++;
-                while(movement < length-1)
+                //movement++;
+                while(movement < length)
                 {
                     boolean down = false;
-                    if(teeth % 2 == 0) {
-                        svg += h+" "+reverse;
-                        movement++;
-                    }
-                    else
-                        svg += v+" "+neg;
 
-                    if(teeth % 3 == 0 && teeth != 0) {
-                        teeth = 0; down = true;
-                        if(neg == "-")
-                            svg = removal(svg);
-                        else
-                            svg += "-";
-                    }
-
-                    else {
+                    if((movement == 0 || movement+2 == length) && teeth % 2 == 0) {
+                        svg += h+reverse+"2.0 ";//B.sides[index].depth*2; 
+                        movement += 2;
                         teeth++;
                     }
-
-                    if(teeth == 2 || down)
-                        svg += B.sides[index].depth;
                     else
-                        svg += "1.0";
+                    {
+                        if(teeth % 2 == 0) {
+                            svg += h+" "+reverse;
+                            movement++;
+                        }
+                        else
+                            svg += v+" "+neg;
+
+                        if(teeth % 3 == 0 && teeth != 0) {
+                            teeth = 0; down = true;
+                            if(neg == "-")
+                                svg = removal(svg);
+                            else
+                                svg += "-";
+                        }
+
+                        else {
+                            teeth++;
+                        }
+
+                        if(teeth == 2 || down)
+                            svg += B.sides[index].depth;
+                        else
+                            svg += "1.0";
+                    }
                 }
             }
         }
