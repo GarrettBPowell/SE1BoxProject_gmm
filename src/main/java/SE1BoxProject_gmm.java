@@ -183,18 +183,6 @@ public class SE1BoxProject_gmm
 
         while(true)
         {
-            if(checkNum(width))
-            {
-                width = "" + ((int)Double.parseDouble(width));
-                if(!(Integer.parseInt(width) < 5 || Integer.parseInt(width) > 17))
-                    break;
-            }
-            System.out.print("Enter a whole number for the width between (5.0-17.0)cm: ");
-            width = sc.nextLine();
-        }
-
-        while(true)
-        {
             if(checkNum(length))
             {
                 length = "" + ((int)Double.parseDouble(length));
@@ -205,6 +193,17 @@ public class SE1BoxProject_gmm
             length = sc.nextLine();
         }
 
+        while(true)
+        {
+            if(checkNum(width))
+            {
+                width = "" + ((int)Double.parseDouble(width));
+                if(!(Integer.parseInt(width) < 5 || Integer.parseInt(width) > 17))
+                    break;
+            }
+            System.out.print("Enter a whole number for the width between (5.0-17.0)cm: ");
+            width = sc.nextLine();
+        }
 
         while(true)
         {
@@ -364,6 +363,7 @@ public class SE1BoxProject_gmm
 
                         else 
                         {
+                            boolean down = false;
                             if(teeth % 2 == 0) {
                                 svg += h+" "+reverse;
                                 movement++;
@@ -372,7 +372,7 @@ public class SE1BoxProject_gmm
                                 svg += v+" "+neg;
 
                             if(teeth % 3 == 0 && teeth != 0) {
-                                teeth = 0;
+                                teeth = 0; down = true;
                                 if(neg == "-")
                                     svg = removal(svg);
                                 else
@@ -383,7 +383,10 @@ public class SE1BoxProject_gmm
                                 teeth++;
                             }
 
-                            svg += B.sides[index].depth;
+                            if(teeth == 2 || down)
+                                svg += B.sides[index].depth;
+                            else
+                                svg += "1.0";
                         }
                     }
                 }
@@ -391,8 +394,6 @@ public class SE1BoxProject_gmm
 
             else // here
             {
-                if(i % 2 == 0)
-                    length--;
                 if(i == 1) {
                     neg = "";
                     reverse = "";
@@ -402,16 +403,27 @@ public class SE1BoxProject_gmm
                     reverse = "-";
                 }
 
-                while(movement < length-1)
+                while(movement < length)
                 {
-                    if(((movement == 0) && teeth % 2 == 0) && !addTwo) {
-                        svg += h+" "+reverse+B.sides[index].depth*2; 
+                    if(((movement == 0 || movement+2 == length) && teeth % 2 == 0) && addTwo) {
+                        svg += h+" "+reverse+(2-B.sides[index].depth); 
+                        movement += 2;
+                        teeth++;
+                    }
+                    else if(((movement == 0) && teeth % 2 == 0) && !addTwo) {
+                        svg += h+" "+reverse+"2.0"; 
+                        movement += 2;
+                        teeth++;
+                    }
+                    else if(((movement+2 == length) && teeth % 2 == 0) && !addTwo) {
+                        svg += h+" "+reverse+(2-B.sides[index].depth); 
                         movement += 2;
                         teeth++;
                     }
 
                     else 
                     {
+                        boolean down = false;
                         if(teeth % 2 == 0) {
                             svg += h+" "+reverse;
                             movement++;
@@ -420,7 +432,7 @@ public class SE1BoxProject_gmm
                             svg += v+" "+neg;
 
                         if(teeth % 3 == 0 && teeth != 0) {
-                            teeth = 0;
+                            teeth = 0; down = true;
                             if(neg == "-")
                                 svg = removal(svg);
                             else
@@ -431,7 +443,10 @@ public class SE1BoxProject_gmm
                             teeth++;
                         }
 
-                        svg += B.sides[index].depth;
+                        if(teeth == 2 || down)
+                            svg += B.sides[index].depth;
+                        else
+                            svg += "1.0";
                     }
                 }
             }
@@ -447,6 +462,9 @@ public class SE1BoxProject_gmm
 
         for(int i = 0; i < 4; i++)
         {
+            // if(i == 4)
+            //     break;
+
             String neg = "-";
             String reverse = "";
             String v = "v";
@@ -462,15 +480,19 @@ public class SE1BoxProject_gmm
             int length = B.sides[index].sideLength;
 
             if(i % 2 == 1) {
-                length = B.sides[index].sideWidth-1;
+                length = B.sides[index].sideWidth;
                 v = "h"; h = "v"; 
                 addTwo = false;
             }
 
             if(index <= 3)
             {
-                if(B.h % 2 == 1 && i == 1) 
-                    length++;
+                boolean pass = true; // Even_Even_Odd
+                if(B.h % 2 == 1)
+                    pass = false;
+
+                // if(B.h % 2 == 1 && i == 1) 
+                //     length++;
                 if(B.h % 2 == 1 && i == 3)
                     length--;
                 
@@ -478,17 +500,59 @@ public class SE1BoxProject_gmm
                     neg = "-";
                     reverse = "-"; 
                 }
+                if(B.h % 2 == 1 && i == 3) {
+                    neg = "-";
+                    reverse = "-";
+                    length++;
+                }
+
+                int jump = 0;
+                int beg = length-2;
+
+                if( i == 0) {
+                    jump = length-2;
+                    beg = 0;
+                }
 
                 while(movement < length)
                 {
-                    if(((movement == 0 || movement+2 == length) && teeth % 2 == 0) && addTwo) {
-                        svg += h+" "+reverse+B.sides[index].depth*2;//"2.0 ";
+                    if(((movement == 0) && teeth % 2 == 0) && addTwo && pass) {
+                        svg += h+reverse+(2-B.sides[index].depth);
                         movement += 2;
+                        teeth++;
+                    }
+                    else if(((movement+2 == length) && teeth % 2 == 0) && addTwo && pass) {
+                        svg += h+reverse+"2.0";
+                        movement += 2;
+                        teeth++;
+                    }
+
+                    else if(((movement+1 == length) && teeth % 2 == 0) && !addTwo && pass) {
+                        svg += h+reverse+B.sides[index].depth;
+                        movement++;
+                        teeth++;
+                    }
+
+                    //Even_Even_Odd
+                    else if(((movement == beg) && teeth % 2 == 0) && addTwo && !pass) {
+                        svg += h+reverse+(2-B.sides[index].depth);
+                        movement += 2;
+                        teeth++;
+                    }
+                    else if(((movement == jump) && teeth % 2 == 0) && addTwo && !pass) {
+                        svg += h+reverse+"2.0 ";
+                        movement += 2;
+                        teeth++;
+                    }
+                    else if((B.h % 2 == 1) && (i == 3) && (movement == 0 || movement+1 == length) && teeth % 2 == 0) {
+                        svg += h+reverse+(1-B.sides[index].depth);
+                        movement++;
                         teeth++;
                     }
 
                     else 
                     {
+                        boolean down = false;
                         if(teeth % 2 == 0) {
                             svg += h+" "+reverse;
                             movement++;
@@ -497,7 +561,7 @@ public class SE1BoxProject_gmm
                             svg += v+" "+neg;
 
                         if(teeth % 3 == 0 && teeth != 0) {
-                            teeth = 0;
+                            teeth = 0; down = true;
                             if(neg == "-")
                                 svg = removal(svg);
                             else
@@ -508,15 +572,15 @@ public class SE1BoxProject_gmm
                             teeth++;
                         }
 
-                        svg += B.sides[index].depth;//
+                        if(teeth == 2 || down)
+                            svg += B.sides[index].depth;
+                        else
+                            svg += "1.0";
                     }
                 }
             }
             else
             {
-                if(i % 2 == 0)
-                    length--;
-
                 if(i == 1) {
                     neg = "";
                     reverse = "";
@@ -528,8 +592,14 @@ public class SE1BoxProject_gmm
 
                 while(movement < length)
                 {
+                    boolean down = false;
                     if(movement == 0) {
-                        svg += h+reverse+B.sides[index].depth*2;//"2.0 "; 
+                        svg += h+reverse+"2.0 "; 
+                        movement += 2;
+                        teeth++;
+                    }
+                    else if((movement+2 == length) && teeth % 2 == 0) {
+                        svg += h+reverse+(2-B.sides[index].depth);
                         movement += 2;
                         teeth++;
                     }
@@ -544,7 +614,7 @@ public class SE1BoxProject_gmm
                             svg += v+" "+neg;
 
                         if(teeth % 3 == 0 && teeth != 0) {
-                            teeth = 0;
+                            teeth = 0; down = true;
                             if(neg == "-")
                                 svg = removal(svg);
                             else
@@ -555,7 +625,10 @@ public class SE1BoxProject_gmm
                             teeth++;
                         }
 
-                        svg += B.sides[index].depth;//
+                        if(teeth == 2 || down)
+                            svg += B.sides[index].depth;
+                        else
+                            svg += "1.0";
                     }
                 }
             }
