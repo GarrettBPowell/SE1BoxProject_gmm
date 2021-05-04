@@ -842,7 +842,7 @@ public class SE1BoxProject_gmm
                     BufferedWriter toFile = new BufferedWriter(new FileWriter(newFile));
                     toFile.write("<?xml version=\"1.0\" encoding=\"us-ascii\"?>");
                     toFile.write("\n<svg height=\"81.90cm\" viewBox=\"0.0 0.0 120.10 81.90\" width=\"120.10cm\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:cc=\"http://creativecommons.org/ns#\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:svg=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">");
-                    toFile.write("\n<style type=\"text/css\">\n.st0{fill:none;stroke:#000000;stroke-width:0.001cm;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;}\n.st1{font-family:\"PerpetuaTitlingMT-Light\";}\n.st2{font-size:" + B.letterSizes[B.letterSize] + "px;}\n</style>");
+                    toFile.write("\n<style type=\"text/css\">\n.st0{fill:none;stroke:#000000;stroke-width:0.001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;}\n.st1{font-family:\"PerpetuaTitlingMT-Light\";}\n.st2{font-size:" + B.letterSizes[B.letterSize] + "px;}\n</style>");
                     toFile.write("\n<g id=\"dovetail\">");
 
                     int amount = 5;
