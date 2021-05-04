@@ -425,5 +425,88 @@ public class SE1BoxProject_gmmTest
             System.out.println("Failed to create box");
         }
     }
-
+	
+	@Test
+    public void Odd_Even_Even_A1()
+    {
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, true, 11, 7, 7, 0.1, "NULL", "NULL");
+        try{
+            assertTrue(classTest.Odd_Odd_OddorEven(newBox, 0).contains("M 1.0 1.0 h 1.9v 0.1h 1.0v -0.1h 1.0v 0.1h 1.0v -0.1h 1.0v 0.1h 1.0v -0.1h 1.0v 0.1h 1.0v -0.1h2.0 v 1.0h -0.1v 1.0h 0.1v 1.0h -0.1v 1.0h 0.1v 1.0h -0.1v 1.0h 0.1v 1.0h-2.0 v -0.1h -1.0v 0.1h -1.0v -0.1h -1.0v 0.1h -1.0v -0.1h -1.0v 0.1h -1.0v -0.1h -1.0v 0.1h -1.9v -1.0h -0.1v -1.0h 0.1v -1.0h -0.1v -1.0h 0.1v -1.0h -0.1v -1.0h 0.1v -1.0"));
+			}
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
+	
+	@Test
+    public void Odd_Even_Even_A2()
+    {
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, true, 11, 7, 7, 0.1, "NULL", "NULL");
+        try{
+            assertTrue(classTest.Odd_Odd_OddorEven(newBox, 1).contains("M 13.0 1.0 h 1.9v 0.1h 1.0v -0.1h 1.0v 0.1h 1.0v -0.1h 1.0v 0.1h 1.0v -0.1h 1.0v 0.1h 1.0v -0.1h2.0 v 1.0h -0.1v 1.0h 0.1v 1.0h -0.1v 1.0h 0.1v 1.0h -0.1v 1.0h 0.1v 1.0h-2.0 v -0.1h -1.0v 0.1h -1.0v -0.1h -1.0v 0.1h -1.0v -0.1h -1.0v 0.1h -1.0v -0.1h -1.0v 0.1h -1.9v -1.0h -0.1v -1.0h 0.1v -1.0h -0.1v -1.0h 0.1v -1.0h -0.1v -1.0h 0.1v -1.0"));
+			}
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
+	
+	@Test
+    public void Odd_Even_Even_B1()
+    {
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, true, 11, 7, 7, 0.1, "NULL", "NULL");
+        try{
+            assertTrue(classTest.Odd_Odd_OddorEven(newBox, 2).contains("M 25.0 1.0 h 1.9v 0.1h 1.0v -0.1h 1.0v 0.1h 1.0v -0.1h2.0 v 1.0h -0.1v 1.0h 0.1v 1.0h -0.1v 1.0h 0.1v 1.0h -0.1v 1.0h 0.1v 1.0h-2.0 v -0.1h -1.0v 0.1h -1.0v -0.1h -1.0v 0.1h -1.9v -1.0h -0.1v -1.0h 0.1v -1.0h -0.1v -1.0h 0.1v -1.0h -0.1v -1.0h 0.1v -1.0"));
+			}
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
+	
+	@Test
+    public void Odd_Even_Even_B2()
+    {
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, true, 11, 7, 7, 0.1, "NULL", "NULL");
+        try{
+            assertTrue(classTest.Odd_Odd_OddorEven(newBox, 3).contains("M 1.0 9.0 h 1.9v 0.1h 1.0v -0.1h 1.0v 0.1h 1.0v -0.1h2.0 v 1.0h -0.1v 1.0h 0.1v 1.0h -0.1v 1.0h 0.1v 1.0h -0.1v 1.0h 0.1v 1.0h-2.0 v -0.1h -1.0v 0.1h -1.0v -0.1h -1.0v 0.1h -1.9v -1.0h -0.1v -1.0h 0.1v -1.0h -0.1v -1.0h 0.1v -1.0h -0.1v -1.0h 0.1v -1.0"));
+			}
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
+	
+	@Test
+    public void Odd_Even_Even_Top()
+    {
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, true, 11, 7, 7, 0.1, "NULL", "NULL");
+        try{
+            assertTrue(classTest.Odd_Odd_OddorEven(newBox, 4).contains("M 9.0 9.0 h1.9v -0.1h 1.0v 0.1h 1.0v -0.1h 1.0v 0.1h 1.0v -0.1h 1.0v 0.1h 1.0v -0.1h 1.0v 0.1h1.9v1.9h 0.1v 1.0h -0.1v 1.0h 0.1v 1.0h -0.1v1.9h-1.9v 0.1h -1.0v -0.1h -1.0v 0.1h -1.0v -0.1h -1.0v 0.1h -1.0v -0.1h -1.0v 0.1h -1.0v -0.1h-1.9v-1.9h -0.1v -1.0h 0.1v -1.0h -0.1v -1.0h 0.1v-1.9"));
+			}
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
+	
+	@Test
+    public void Odd_Even_Even_Bot()
+    {
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, true, 11, 7, 7, 0.1, "NULL", "NULL");
+        try{
+            assertTrue(classTest.Odd_Odd_OddorEven(newBox, 5).contains("M 21.0 9.0 h1.9v -0.1h 1.0v 0.1h 1.0v -0.1h 1.0v 0.1h 1.0v -0.1h 1.0v 0.1h 1.0v -0.1h 1.0v 0.1h1.9v1.9h 0.1v 1.0h -0.1v 1.0h 0.1v 1.0h -0.1v1.9h-1.9v 0.1h -1.0v -0.1h -1.0v 0.1h -1.0v -0.1h -1.0v 0.1h -1.0v -0.1h -1.0v 0.1h -1.0v -0.1h-1.9v-1.9h -0.1v -1.0h 0.1v -1.0h -0.1v -1.0h 0.1v-1.9"));
+			}
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
 }
