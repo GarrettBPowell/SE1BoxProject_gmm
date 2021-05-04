@@ -6,17 +6,14 @@ Inception Deck:
 1. Why we are here.
     Our goal is to allow our users to make a box.
 2. Elevator pitch.
-    
-3. Design a product box.
-  
+   We designed the newest and coolest box making software. Simply input your preferences and have an svg file ready to print at the ACU Maker Lab.
+
 4. Create a NOT list.
     Custom shape maker
     Round boxes
     Gears or anything mechanical
     Buying the user a computer
     Doing any sort of authentication
-  
-6. Show the solution.
   
 7. Ask what keeps us up at night.
     What is a box?
