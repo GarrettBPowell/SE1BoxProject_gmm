@@ -593,4 +593,86 @@ public class SE1BoxProject_gmmTest
             System.out.println("Failed to create box");
         }
     }
+	
+	public void Even_Even_Even_A11()
+    {
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, false, 16, 16, 18, 1.0, "NULL", "NULL");
+        try{
+            assertTrue(classTest.Even_Even_EvenorOdd(newBox, 0).contains("M 1.0 1.0 h1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h2.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v0.0h-1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h-2.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v-0.0"));
+			}
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
+	
+	@Test
+    public void Even_Even_Even_A21()
+    {
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, false, 16, 16, 18, 1.0, "NULL", "NULL");
+        try{
+            assertTrue(classTest.Even_Even_EvenorOdd(newBox, 1).contains("M 18.0 1.0 h1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h2.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v0.0h-1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h-2.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v-0.0"));
+			}
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
+	
+	@Test
+    public void Even_Even_Even_B11()
+    {
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, false, 16, 16, 18, 1.0, "NULL", "NULL");
+        try{
+            assertTrue(classTest.Even_Even_EvenorOdd(newBox, 2).contains("M 35.0 1.0 h1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h2.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v0.0h-1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h-2.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v-0.0"));
+			}
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
+	
+	@Test
+    public void Even_Even_Even_B21()
+    {
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, false, 16, 16, 18, 1.0, "NULL", "NULL");
+        try{
+            assertTrue(classTest.Even_Even_EvenorOdd(newBox, 3).contains("M 1.0 20.0 h1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h2.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v0.0h-1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h-2.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v-0.0"));
+			}
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
+	
+	@Test
+    public void Even_Even_Even_Bot1()
+    {
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, false, 16, 16, 18, 1.0, "NULL", "NULL");
+        try{
+            assertTrue(classTest.Even_Even_EvenorOdd(newBox, 4).contains("M 18.0 20.0 h2.0 v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h1.0v2.0 h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v1.0h-2.0 v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h-1.0v-2.0 h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v-1.0"));
+			}
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
+	@Test
+    public void Even_Even_Even_Top1()
+    {
+        SE1BoxProject_gmm classTest = new SE1BoxProject_gmm();
+        String filename = "Make box";
+        Box newBox = new Box(filename, false, 16, 16, 18, 1.0, "NULL", "NULL");
+        try{
+            assertTrue(classTest.Even_Even_EvenorOdd(newBox, 5).contains("M 35.0 20.0 h2.0 v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h 1.0v 1.0h 1.0v -1.0h1.0v2.0 h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v 1.0h -1.0v 1.0h 1.0v1.0h-2.0 v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h -1.0v -1.0h -1.0v 1.0h-1.0v-2.0 h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v -1.0h 1.0v -1.0h -1.0v-1.0"));
+			}
+        catch (Exception e){
+            System.out.println("Failed to create box");
+        }
+    }
 }
